@@ -1,6 +1,7 @@
 (* Placeholder for the dating-client. Note that in order to communicate 
    with your server you will need to create the corresponding trustmap *)
-
+0
+(*
 let fun agent profile = 
       let
          val (lev, name, age, gender, interests) = profile
@@ -28,3 +29,4 @@ let fun agent profile =
          end
 in main ()
 end
+*)

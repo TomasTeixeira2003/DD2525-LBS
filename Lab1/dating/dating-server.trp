@@ -1,16 +1,37 @@
 (* Starting file for the server *)
-
+import declassifyutil
 import lists
-let fun server db = (* TODO: finish this *)
+let 
+    fun match user1 user2 =
+        let pini authority
+            val _ = print ("hello")
+            val _ = print user1
+            val _ = print user2
+            val (profile1, agent1, pid1) = user1
+            val (profile2, agent2, pid2) = user2
+
+            val (matched, matchedProfile) = agent1 profile2
+
+            val _ = print ("matched:", matched)
+            val _ = printWithLabels ("Comparing users:", profile1, profile2)
+
+
+        in ()
+        end
+    
+    fun isPresent newUser user2 = map (match newUser) user2
+    
+    fun server db = (* TODO: finish this *)
          let
-            val _ = receive [hn ("NEWPROFILE", data) => 
-                                list.append(data)
+            val data = receive [hn ("NEWPROFILE", data) => 
+                                data
                                 (*let val (profile, agent, pid) = data
                                     val (lev, name, year, gender, interests) = profile
                                     list.append(profile)
                                 in ()
                                 end*)
                              ]
+            val _ = isPresent data db
             (*HOw do I receive two here? and operate on them? *)
             (*
              1. how to make annd add things to list
@@ -31,7 +52,7 @@ let fun server db = (* TODO: finish this *)
     fun main () =       
         let val thisNode = node (self ())
             val _ = printString ("Running node with identifier: " ^ thisNode)
-            val _ =  register ("datingServer", spawn server, authority)
+            val _ =  register ("datingServer", spawn (fn () => server []), authority)
         in  (* TODO: Feel free to comment out the next line
                      while you develop your solution and work on a few 
                      custom clients;  *)
