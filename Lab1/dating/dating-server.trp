@@ -4,17 +4,23 @@ import lists
 let 
     fun match user1 user2 =
         let pini authority
-            val _ = print ("hello")
-            val _ = print user1
-            val _ = print user2
             val (profile1, agent1, pid1) = user1
             val (profile2, agent2, pid2) = user2
 
             val (matched, matchedProfile) = agent1 profile2
+            val (matched2, matchedProfile2) = agent2 profile1
 
-            val _ = print ("matched:", matched)
+            (*val _ = print ("matched:", matched)
             val _ = printWithLabels ("Comparing users:", profile1, profile2)
+            *)
 
+            val _ = if matched = true andalso matched2 = true then
+                        let 
+                            val _ = send(pid1, ("NEWMATCH", matchedProfile))
+                            val _ = send(pid2, ("NEWMATCH", matchedProfile2))
+                        in ()
+                        end
+                    else ()
 
         in ()
         end
