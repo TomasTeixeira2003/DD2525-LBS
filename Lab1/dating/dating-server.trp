@@ -1,12 +1,29 @@
 (* Starting file for the server *)
 
 import lists
-let fun server () = (* TODO: finish this *)
-         let val _ = receive [hn ("NEWPROFILE", _ )
-                                => printString "New profile received"
+let fun server db = (* TODO: finish this *)
+         let
+            val _ = receive [hn ("NEWPROFILE", data) => 
+                                list.append(data)
+                                (*let val (profile, agent, pid) = data
+                                    val (lev, name, year, gender, interests) = profile
+                                    list.append(profile)
+                                in ()
+                                end*)
                              ]
-         in server ()
+            (*HOw do I receive two here? and operate on them? *)
+            (*
+             1. how to make annd add things to list
+             2. add all clients to list
+             3. another funtion to access parts of the list (idea) -- find way to read data from map
+             4. for each profile call all other agents 
+             FOR THIS SEE file "helpfulExcerciseSolutionForServer.trp"*)
+         in 
+            (*send (pid, ("NEWMATCH", profile))*)
+            server (data::db)
          end
+
+    
 
     (* Our main function starts the server and then requests the
        dispatcher to send some clients this way. *)

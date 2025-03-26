@@ -1,4 +1,30 @@
 (* Placeholder for the dating-client. Note that in order to communicate 
    with your server you will need to create the corresponding trustmap *)
-   
-0
+
+let fun agent profile = 
+      let
+         val (lev, name, age, gender, interests) = profile
+         val preference = false
+         val maybeProfile = ()
+         if age = 22 then  
+            preference = false 
+            maybeProfile = ()
+         else
+            preference = true
+            maybeProfile = profile
+      in
+         (preference, maybeProfile) 
+         (*This is most definetly not how you make this function return something*)
+      end
+    
+
+    fun main () =       
+        let val _ = receive [hn ("NEWMATCH", profile) => 
+                                let 
+                                in ()
+                                end
+                             ]
+         in main ()
+         end
+in main ()
+end
