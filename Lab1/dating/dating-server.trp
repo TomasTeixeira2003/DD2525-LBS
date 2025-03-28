@@ -9,7 +9,7 @@ let
 
             val tmp = pinipush authority
             val (matched, matchedProfile) = agent1 profile2
-            val (matched2, matchedProfile2) = agent2 profile1 (*the matchedProfile is the profile of the agent client's person and not profile1 *)
+            val (matched2, matchedProfile2) = agent2 profile1 (*the matchedProfile is the profile of agent2's client and not profile1 *)
             val _ = pinipop tmp
 
             (*val _ = print ("matched:", matched)
@@ -48,6 +48,7 @@ let
                                 in ()
                                 end*)
                              ]
+            val _ = print ("Profile received: ", data)
             val _ = isPresent data db
             (*HOw do I receive two here? and operate on them? *)
             (*
@@ -73,7 +74,7 @@ let
         in  (* TODO: Feel free to comment out the next line
                      while you develop your solution and work on a few 
                      custom clients;  *)
-            send (whereis ("@dispatcher", "dispatcher"), ("DISPATCH", thisNode)); 
+            (*send (whereis ("@dispatcher", "dispatcher"), ("DISPATCH", thisNode));*)
             ()
         end
 in main ()
