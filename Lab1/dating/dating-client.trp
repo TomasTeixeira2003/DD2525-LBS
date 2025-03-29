@@ -8,16 +8,28 @@ import declassifyutil
 import lists
 
 let 
-   fun agent myprofile profile = 
+   val lev = `{alice}` 
+   val name = "Alice"
+   val age = 21
+   val gender = true
+   val interest = ["skiing", "skiing"]
+
+   fun agent myprofile profileReceiv = 
       let
-         val (lev, name, age, gender, interests) = profile
+         val (levReceiv, nameReceiv, ageReceiv, genderReceiv, interestsReceiv) = profileReceiv
          val preference = false
-         val _ = if age = 22 then  
+         val _ = if ageReceiv = 22 then  
             preference = false 
          else
             preference = true
          
-         val myProfileRaised = false(*raise our profile level to the level of lev from the other person*)
+         val levRaise = lev raisedTo levReceiv
+         val nameRaise = name raisedTo levReceiv
+         val ageRaise = age raisedTo levReceiv
+         val genderRaise = gender raisedTo levReceiv
+         val interestRaise = interest raisedTo levReceiv
+
+         val myProfileRaised = (levRaise, nameRaise, ageRaise, genderRaise, interestRaise)
       in
          (preference, myProfileRaised) 
          (*This is most definetly not how you make this function return something*)
@@ -26,23 +38,16 @@ let
 
    fun main () =       
       let
-         val lev = `{alice}` 
          val lev1 = lev raisedTo lev
-         val name = "Alice"
          val name1 = name raisedTo lev
-         val age = 21
-         val gender = true
-         val interest = ["skiing", "skiing"]
-
          val age1 = age raisedTo lev
          val gender1 = gender raisedTo lev
          val interest1 = interest raisedTo lev
 
-         val myprofile = (lev1, name1, age1, gender1, interest1)
-
-
+         val profile = (lev1, name1, age1, gender1, interest1)
+         val _ = printWithLabels profile
       in 
-         send(whereis ("@dating-server", "datingServer")(*IP of server*), ("NEWPROFILE", (myprofile, agent myprofile, self()))) (*This won't work is just the main idea for now*)
+         send(whereis ("@dating-server", "datingServer"), ("NEWPROFILE", (profile, agent profile, self())))
       end
 in main ()
 end

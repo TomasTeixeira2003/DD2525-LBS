@@ -48,7 +48,7 @@ let
                                 in ()
                                 end*)
                              ]
-            val _ = print ("Profile received: ", data)
+            val _ = printWithLabels ("Profile received: ", data)
             val _ = isPresent data db
             (*HOw do I receive two here? and operate on them? *)
             (*
