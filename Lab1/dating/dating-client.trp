@@ -14,7 +14,7 @@ let
    val gender = true
    val interest = ["skiing", "skiing"]
 
-   fun agent myprofile profileReceiv = 
+   fun agent profileReceiv = 
       let
          val (levReceiv, nameReceiv, ageReceiv, genderReceiv, interestsReceiv) = profileReceiv
          val preference = false
@@ -28,7 +28,7 @@ let
          val genderRaise = gender raisedTo levReceiv
          val interestRaise = interest raisedTo levReceiv
 
-         val myProfileRaised = (levRaise, nameRaise, ageRaise, genderRaise, interestRaise)
+         val myProfileRaised = (lev, nameRaise, ageRaise, genderRaise, interestRaise)
       in
          (preference, myProfileRaised) 
          (*This is most definetly not how you make this function return something*)
@@ -42,10 +42,10 @@ let
          val gender1 = gender raisedTo lev
          val interest1 = interest raisedTo lev
 
-         val profile = (lev1, name1, age1, gender1, interest1)
+         val profile = (lev, name1, age1, gender1, interest1)
          val _ = printWithLabels profile
 
-         val alice = (profile, agent profile, self())
+         val alice = (profile, agent, self())
          val _ = printWithLabels alice
       in 
          send(whereis ("@dating-server", "datingServer"), ("NEWPROFILE", alice))
