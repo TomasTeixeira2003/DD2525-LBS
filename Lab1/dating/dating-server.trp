@@ -38,7 +38,7 @@ let
     
     fun isPresent newUser user2 = map (match newUser) user2
     
-    fun server db = (* TODO: finish this *)
+    fun server db =
          let
             val data = receive [hn ("NEWPROFILE", data) => 
                                 data
@@ -74,7 +74,7 @@ let
         in  (* TODO: Feel free to comment out the next line
                      while you develop your solution and work on a few 
                      custom clients;  *)
-            (*send (whereis ("@dispatcher", "dispatcher"), ("DISPATCH", thisNode));*)
+            send (whereis ("@dispatcher", "dispatcher"), ("DISPATCH", thisNode));
             ()
         end
 in main ()
