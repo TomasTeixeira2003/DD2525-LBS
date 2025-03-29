@@ -17,18 +17,17 @@ let
    fun agent profileReceiv = 
       let
          val (levReceiv, nameReceiv, ageReceiv, genderReceiv, interestsReceiv) = profileReceiv
-         val preference = false
-         val _ = if ageReceiv = 22 then  
-            preference = false 
+         val preference = if ageReceiv = 22 then  
+            false 
          else
-            preference = true
+            true
          
          val nameRaise = name raisedTo levReceiv
          val ageRaise = age raisedTo levReceiv
          val genderRaise = gender raisedTo levReceiv
          val interestRaise = interest raisedTo levReceiv
 
-         val myProfileRaised = (lev, nameRaise, ageRaise, genderRaise, interestRaise)
+         val myProfileRaised = if preference = false then () else (lev, nameRaise, ageRaise, genderRaise, interestRaise)
       in
          (preference, myProfileRaised) 
          (*This is most definetly not how you make this function return something*)
@@ -50,6 +49,18 @@ let
       in 
          send(whereis ("@dating-server", "datingServer"), ("NEWPROFILE", alice))
       end
-in main ()
+
+   fun received () =       
+      let
+         val received_profile = receive [hn ("NEWMATCH", profile) => 
+                                profile
+                             ]
+         val (_, received_name, _, _, _) = received_profile
+         val _ = print ("Matched with:", received_name)
+      in 
+         ()
+      end
+in 
+   (main (), received() )
 end
 

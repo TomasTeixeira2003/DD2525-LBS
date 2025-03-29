@@ -1,0 +1,69 @@
+(* Placeholder for the dating-client. Note that in order to communicate 
+   with your server you will need to create the corresponding trustmap *)
+
+(* The blocking label of the returned profile shouldd match the given profiles lev variable*)
+
+(*The profile should look something like this: @{}%{}, (({ramsay}@{}%{}, "Ramsay"@{ramsay}%{}, 2103@{ramsay}%{}, false@{ramsay}%{}, ["beer"@{}%{}, "winter"@{}%{}]@{ramsay}%{})@{}%{}, fn => ..@{}%{}, 5b3f04ab-2bec-4c21-ae05-5c36b062d985@{}%{})@{}%{})@{}%{}*)
+import declassifyutil
+import lists
+
+let 
+   val lev = `{bob}` 
+   val name = "Bob"
+   val age = 30
+   val gender = true
+   val interest = ["badminton", "cake"]
+
+   fun agent profileReceiv = 
+      let
+         val (levReceiv, nameReceiv, ageReceiv, genderReceiv, interestsReceiv) = profileReceiv
+         val preference = if nameReceiv = "Alice" then  
+            true 
+         else
+            false
+         
+         val nameRaise = name raisedTo levReceiv
+         val ageRaise = age raisedTo levReceiv
+         val genderRaise = gender raisedTo levReceiv
+         val interestRaise = interest raisedTo levReceiv
+
+         val myProfileRaised = if preference = false then () else (lev, nameRaise, ageRaise, genderRaise, interestRaise)
+      in
+         (preference, myProfileRaised) 
+         (*This is most definetly not how you make this function return something*)
+      end
+    
+
+   fun main () =       
+      let
+         val name1 = name raisedTo lev
+         val age1 = age raisedTo lev
+         val gender1 = gender raisedTo lev
+         val interest1 = interest raisedTo lev
+
+         val profile = (lev, name1, age1, gender1, interest1)
+         val _ = printWithLabels profile
+
+         val alice = (profile, agent, self())
+         val _ = printWithLabels alice
+      in 
+         send(whereis ("@dating-server", "datingServer"), ("NEWPROFILE", alice))
+      end
+
+
+   fun received () =       
+      let
+         val _ = print ("1")
+         val received_profile = receive [hn ("NEWMATCH", profile) => 
+                                profile
+                             ]
+         val _ = print ("2")
+         val (dontcare1, received_name, dontcare2, dontcare3, dontcare4) = received_profile
+         
+      in 
+         print ("Matched with:", received_name)
+      end
+in 
+   (main (), received() )
+end
+

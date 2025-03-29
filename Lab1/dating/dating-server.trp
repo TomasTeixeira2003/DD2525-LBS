@@ -16,11 +16,11 @@ let
             val _ = printWithLabels ("Comparing users:", profile1, profile2)
             *)
 
-            (*val _ = printWithLabels matched
+            val _ = printWithLabels matched
             val _ = printWithLabels matched2
             val _ = printWithLabels ("Profile", matchedProfile)
             val _ = printWithLabels ("Profile2", matchedProfile2)
-            val _ = printWithLabels ("ID", pid1)
+            (*val _ = printWithLabels ("ID", pid1)
             val _ = printWithLabels ("ID", pid2)*)
 
             val matched_2 = declassify_with_block(matched, authority, `{}`)
@@ -74,7 +74,7 @@ let
         in  (* TODO: Feel free to comment out the next line
                      while you develop your solution and work on a few 
                      custom clients;  *)
-            send (whereis ("@dispatcher", "dispatcher"), ("DISPATCH", thisNode));
+            (*send (whereis ("@dispatcher", "dispatcher"), ("DISPATCH", thisNode));*)
             ()
         end
 in main ()
