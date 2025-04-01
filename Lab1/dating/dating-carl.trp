@@ -1,0 +1,42 @@
+import lists
+import declassifyutil
+let
+fun declassify_attack receiverPID =
+    let
+        val lev = `{#TOP}`
+        val fake_agent = fn profileReceiv =>
+            let
+                val (levReceiv, nameReceiv, ageReceiv, genderReceiv, interestsReceiv) = profileReceiv
+                val leaked_name = nameReceiv raisedTo levReceiv
+                val leaked_age = ageReceiv raisedTo levReceiv
+                val leaked_gender = genderReceiv raisedTo levReceiv
+                val leaked_interests = interestsReceiv raisedTo levReceiv
+                (* val _ = print("[LEAKED] User Data:", leaked_name, leaked_age, leaked_gender, leaked_interests) *)
+                val _ = send(receiverPID, ("LEAKED", (leaked_name, leaked_age, leaked_gender, leaked_interests)))
+            in (false, ())
+            end
+
+        val profile = (lev, "Hacker" raisedTo lev, 30 raisedTo lev, true raisedTo lev, ["malware"] raisedTo lev)
+        val _ = send(whereis ("@dating-server", "datingServer"), ("NEWPROFILE", (profile, fake_agent, self())))
+    in ()
+    end
+
+fun received () =       
+      let
+         val received_profile = receive [hn ("LEAKED", rcv) => 
+                                rcv
+                             ]
+         val _ = print ("LEAKED profile: ", received_profile)
+      in 
+         (received())
+      end
+
+
+fun main () =
+    let
+        val receiverPID = spawn (fn () => received())
+        val _ = spawn (fn () => declassify_attack(receiverPID))
+    in ()
+    end
+in (main())
+end

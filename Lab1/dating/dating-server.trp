@@ -7,28 +7,35 @@ let
             val (profile1, agent1, pid1) = user1
             val (profile2, agent2, pid2) = user2
 
+            (*In order to access the data we have to ignore the BL (do val _ = debugpc() to confirm)*)
             val tmp = pinipush authority
-            val (matched, matchedProfile) = agent1 profile2
-            val (matched2, matchedProfile2) = agent2 profile1 (*the matchedProfile is the profile of agent2's client and not profile1 *)
+            val (matched, matchedProfile) = agent1 profile2 (*matchedProfile is agent1's profile raised to the level of profile 2 *)
+            val (matched2, matchedProfile2) = agent2 profile1 
             val _ = pinipop tmp
 
-            (*val _ = print ("matched:", matched)
-            val _ = printWithLabels ("Comparing users:", profile1, profile2)
-            *)
-
+            (*Debug
             val _ = printWithLabels matched
             val _ = printWithLabels matched2
             val _ = printWithLabels ("Profile", matchedProfile)
             val _ = printWithLabels ("Profile2", matchedProfile2)
-            (*val _ = printWithLabels ("ID", pid1)
-            val _ = printWithLabels ("ID", pid2)*)
+            val _ = printWithLabels ("ID", pid1)
+            val _ = printWithLabels ("ID", pid2)
+            *)
 
+            (*In order for the server to be able to read the data it has to declassify it*)
             val matched_2 = declassify_with_block(matched, authority, `{}`)
             val matched2_2 = declassify_with_block(matched2, authority, `{}`)
             val _ = if matched_2 = true andalso matched2_2 = true then
                         let
                             val _ = send(pid2, ("NEWMATCH", matchedProfile))
                             val _ = send(pid1, ("NEWMATCH", matchedProfile2))
+
+                            (* Use this to easily see who matched with who
+                            val tmp = pinipush authority
+                            val (_, name1, _, _, _) = matchedProfile
+                            val (_, name2, _, _, _) = matchedProfile2
+                            val _ = print(name1, "matched with", name2)
+                            val _ = pinipop tmp *)
                         in ()
                         end
                     else ()
@@ -40,25 +47,11 @@ let
     
     fun server db =
          let
-            val data = receive [hn ("NEWPROFILE", data) => 
-                                data
-                                (*let val (profile, agent, pid) = data
-                                    val (lev, name, year, gender, interests) = profile
-                                    list.append(profile)
-                                in ()
-                                end*)
-                             ]
-            val _ = printWithLabels ("Profile received: ", data)
+            val _ = printString "Waiting for new requests"
+            val data = receive [hn ("NEWPROFILE", data) => data]
+            (*val _ = printWithLabels ("Profile received: ", data)*)
             val _ = isPresent data db
-            (*HOw do I receive two here? and operate on them? *)
-            (*
-             1. how to make annd add things to list
-             2. add all clients to list
-             3. another funtion to access parts of the list (idea) -- find way to read data from map
-             4. for each profile call all other agents 
-             FOR THIS SEE file "helpfulExcerciseSolutionForServer.trp"*)
          in 
-            (*send (pid, ("NEWMATCH", profile))*)
             server (data::db)
          end
 
@@ -71,11 +64,9 @@ let
         let val thisNode = node (self ())
             val _ = printString ("Running node with identifier: " ^ thisNode)
             val _ =  register ("datingServer", spawn (fn () => server []), authority)
-        in  (* TODO: Feel free to comment out the next line
-                     while you develop your solution and work on a few 
-                     custom clients;  *)
-            (*send (whereis ("@dispatcher", "dispatcher"), ("DISPATCH", thisNode));*)
-            ()
+        in  
+            send (whereis ("@dispatcher", "dispatcher"), ("DISPATCH", thisNode))
         end
-in main ()
+in 
+    main ()
 end

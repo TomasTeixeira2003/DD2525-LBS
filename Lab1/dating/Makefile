@@ -9,3 +9,7 @@ dating-alice:
 dating-bob:
 	$(TROUPE)/bin/troupec dating-bob.trp -o ./out/dating-bob.js
 	node $(TROUPE)/rt/built/troupe.js -f=./out/dating-bob.js --id=../ids/bob.json --trustmap=../trustmaps/bob.json --aliases=aliases.json
+
+dating-carl:
+	$(TROUPE)/bin/troupec dating-carl.trp -o ./out/dating-carl.js
+	node $(TROUPE)/rt/built/troupe.js -f=./out/dating-carl.js --id=../ids/carl.json --trustmap=../trustmaps/carl.json --aliases=aliases.json

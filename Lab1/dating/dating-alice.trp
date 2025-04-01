@@ -1,7 +1,8 @@
 (* Placeholder for the dating-client. Note that in order to communicate 
    with your server you will need to create the corresponding trustmap *)
 
-(* The blocking label of the returned profile shouldd match the given profiles lev variable*)
+(* The blocking label of the returned profile shouldd match the given profiles lev variable
+   This can be checked in the server inside pini*)
 
 (*The profile should look something like this: @{}%{}, (({ramsay}@{}%{}, "Ramsay"@{ramsay}%{}, 2103@{ramsay}%{}, false@{ramsay}%{}, ["beer"@{}%{}, "winter"@{}%{}]@{ramsay}%{})@{}%{}, fn => ..@{}%{}, 5b3f04ab-2bec-4c21-ae05-5c36b062d985@{}%{})@{}%{})@{}%{}*)
 import declassifyutil
@@ -12,7 +13,7 @@ let
    val name = "Alice"
    val age = 21
    val gender = true
-   val interest = ["skiing", "skiing"]
+   val interest = ["skiing"]
 
    fun agent profileReceiv = 
       let
@@ -42,12 +43,12 @@ let
          val interest1 = interest raisedTo lev
 
          val profile = (lev, name1, age1, gender1, interest1)
-         val _ = printWithLabels profile
+         (*val _ = printWithLabels profile*)
 
-         val alice = (profile, agent, self())
-         val _ = printWithLabels alice
+         val data = (profile, agent, self())
+         (*val _ = printWithLabels data*)
       in 
-         send(whereis ("@dating-server", "datingServer"), ("NEWPROFILE", alice))
+         send(whereis ("@dating-server", "datingServer"), ("NEWPROFILE", data))
       end
 
    fun received () =       
@@ -58,7 +59,7 @@ let
          val (_, received_name, _, _, _) = received_profile
          val _ = print ("Matched with:", received_name)
       in 
-         ()
+         (received())
       end
 in 
    (main (), received() )
