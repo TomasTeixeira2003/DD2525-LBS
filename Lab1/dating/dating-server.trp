@@ -7,6 +7,11 @@ let
             val (profile1, agent1, pid1) = user1
             val (profile2, agent2, pid2) = user2
 
+            (* Debug
+            val _ = print profile1
+            val _ = print profile2
+            *)
+
             (*In order to access the data we have to ignore the BL (do val _ = debugpc() to confirm)*)
             val tmp = pinipush authority
             val (matched, matchedProfile) = agent1 profile2 (*matchedProfile is agent1's profile raised to the level of profile 2 *)
@@ -65,7 +70,8 @@ let
             val _ = printString ("Running node with identifier: " ^ thisNode)
             val _ =  register ("datingServer", spawn (fn () => server []), authority)
         in  
-            send (whereis ("@dispatcher", "dispatcher"), ("DISPATCH", thisNode))
+            (*send (whereis ("@dispatcher", "dispatcher"), ("DISPATCH", thisNode))*)
+            ()
         end
 in 
     main ()

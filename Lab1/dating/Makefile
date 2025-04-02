@@ -13,3 +13,7 @@ dating-bob:
 dating-carl:
 	$(TROUPE)/bin/troupec dating-carl.trp -o ./out/dating-carl.js
 	node $(TROUPE)/rt/built/troupe.js -f=./out/dating-carl.js --id=../ids/carl.json --trustmap=../trustmaps/carl.json --aliases=aliases.json
+
+dating-malicious:
+	$(TROUPE)/bin/troupec dating-malicious.trp -o ./out/dating-malicious.js
+	node $(TROUPE)/rt/built/troupe.js -f=./out/dating-malicious.js --id=../ids/malicious.json --trustmap=../trustmaps/malicious.json --aliases=aliases.json
