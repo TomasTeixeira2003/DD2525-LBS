@@ -1,5 +1,7 @@
 import lists
 import declassifyutil
+(* MALICIOUS client *)
+
 let
     fun declassify_attack receiverPID =
         let
