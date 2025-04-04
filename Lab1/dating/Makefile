@@ -17,3 +17,7 @@ dating-carl:
 dating-malicious:
 	$(TROUPE)/bin/troupec dating-malicious.trp -o ./out/dating-malicious.js
 	node $(TROUPE)/rt/built/troupe.js -f=./out/dating-malicious.js --id=../ids/malicious.json --trustmap=../trustmaps/malicious.json --aliases=aliases.json
+
+dating-max:
+	$(TROUPE)/bin/troupec dating-max.trp -o ./out/dating-max.js
+	node $(TROUPE)/rt/built/troupe.js -f=./out/dating-max.js --id=../ids/max.json --trustmap=../trustmaps/max.json --aliases=aliases.json

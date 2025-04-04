@@ -9,22 +9,22 @@ import declassifyutil
 import lists
 
 let 
-   val lev = `{alice}` 
-   val name = "Alice"
+   val lev = `{max}` 
+   val name = "Max"
    val age = 21
    val gender = true
-   val interest = ["skiing"]
+   val interest = ["basketball", "tennis"]
 
    fun agent profileReceiv = 
       let
          val (levReceiv, nameReceiv, ageReceiv, genderReceiv, interestsReceiv) = profileReceiv
-         val preference = if ageReceiv = 22 then  
-            false 
+         val preference = if ageReceiv = 21 then  
+            true 
          else
-            true
+            false
          
          val nameRaise = name raisedTo levReceiv
-         val ageRaise = ()
+         val ageRaise = age raisedTo levReceiv
          val genderRaise = gender raisedTo levReceiv
          val interestRaise = interest raisedTo levReceiv
 
@@ -56,8 +56,8 @@ let
          val received_profile = receive [hn ("NEWMATCH", profile) => 
                                 profile
                              ]
-         val (_, received_name, _, _, _) = received_profile
-         val _ = print ("Matched with:", received_name)
+         val _ = print ("Matched with:", received_profile)
+         val _ = print ("The matched person is 21 years old")
       in 
          (received())
       end
