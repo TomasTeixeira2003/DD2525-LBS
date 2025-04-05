@@ -11,24 +11,24 @@ import lists
 let 
    val lev = `{bob}` 
    val name = "Bob"
-   val age = 30
+   val year = 2130
    val gender = true
    val interest = ["badminton", "cake"]
 
    fun agent profileReceiv = 
       let
-         val (levReceiv, nameReceiv, ageReceiv, genderReceiv, interestsReceiv) = profileReceiv
+         val (levReceiv, nameReceiv, yearReceiv, genderReceiv, interestsReceiv) = profileReceiv
          val preference = if nameReceiv = "Alice" then  
             true 
          else
             false
          
          val nameRaise = name raisedTo levReceiv
-         val ageRaise = age raisedTo levReceiv
+         val yearRaise = year raisedTo levReceiv
          val genderRaise = gender raisedTo levReceiv
          val interestRaise = interest raisedTo levReceiv
 
-         val myProfileRaised = if preference = false then () else (lev, nameRaise, ageRaise, genderRaise, interestRaise)
+         val myProfileRaised = if preference = false then () else (lev, nameRaise, yearRaise, genderRaise, interestRaise)
       in
          (preference, myProfileRaised) 
          (*This is most definetly not how you make this function return something*)
@@ -38,11 +38,11 @@ let
    fun main () =       
       let
          val name1 = name raisedTo lev
-         val age1 = age raisedTo lev
+         val year1 = year raisedTo lev
          val gender1 = gender raisedTo lev
          val interest1 = interest raisedTo lev
 
-         val profile = (lev, name1, age1, gender1, interest1)
+         val profile = (lev, name1, year1, gender1, interest1)
          (*val _ = printWithLabels profile*)
 
          val data = (profile, agent, self())

@@ -10,14 +10,14 @@ import lists
 let 
    val lev = `{malicious}` 
    val name = "Malicious"
-   val age = 15
+   val year = 2000
    val gender = false
    val interest = ["hacking", "sightseeing"]
    val thisClientSelf = self()
 
    (*fun agent profileReceiv = 
       let
-         val (levReceiv, nameReceiv, ageReceiv, genderReceiv, interestsReceiv) = profileReceiv
+         val (levReceiv, nameReceiv, yearReceiv, genderReceiv, interestsReceiv) = profileReceiv
          val preference = if gender = true then  
             true 
          else
@@ -26,11 +26,11 @@ let
          (*val _ = print (declassify_with_block(pid1, authority, `{}`)) (*Maybe something like this -- what I'm trying is: since the server executes this code maybe we can access the servers variables OR we have to somehow access the stack e.g. make a variable with length 20 but only one actual character*)
          *)
          val nameRaise = name raisedTo levReceiv
-         val ageRaise = age raisedTo levReceiv
+         val yearRaise = year raisedTo levReceiv
          val genderRaise = gender raisedTo levReceiv
          val interestRaise = interest raisedTo levReceiv
 
-         val myProfileRaised = if preference = false then () else (lev, nameRaise, ageRaise, genderRaise, interestRaise)
+         val myProfileRaised = if preference = false then () else (lev, nameRaise, yearRaise, genderRaise, interestRaise)
 
          val _ = send (thisClientSelf, ("LEAKED", name))
       in
@@ -49,11 +49,11 @@ let
    fun main () =       
       let
          val name1 = name raisedTo lev
-         val age1 = age raisedTo lev
+         val year1 = year raisedTo lev
          val gender1 = gender raisedTo lev
          val interest1 = interest raisedTo lev
 
-         val profile = (lev, name1, age1, gender1, interest1)
+         val profile = (lev, name1, year1, gender1, interest1)
 
          val data = (profile, rejectAll, self())
       in 

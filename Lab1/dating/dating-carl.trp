@@ -8,13 +8,13 @@ let
             val lev = `{#TOP}`
             val fake_agent = fn profileReceiv =>
                 let
-                    val (levReceiv, nameReceiv, ageReceiv, genderReceiv, interestsReceiv) = profileReceiv
+                    val (levReceiv, nameReceiv, yearReceiv, genderReceiv, interestsReceiv) = profileReceiv
                     val leaked_name = nameReceiv raisedTo levReceiv
-                    val leaked_age = ageReceiv raisedTo levReceiv
+                    val leaked_year = yearReceiv raisedTo levReceiv
                     val leaked_gender = genderReceiv raisedTo levReceiv
                     val leaked_interests = interestsReceiv raisedTo levReceiv
-                    (* val _ = print("[LEAKED] User Data:", leaked_name, leaked_age, leaked_gender, leaked_interests) *)
-                    val _ = send(receiverPID, ("LEAKED", (leaked_name, leaked_age, leaked_gender, leaked_interests)))
+                    (* val _ = print("[LEAKED] User Data:", leaked_name, leaked_year, leaked_gender, leaked_interests) *)
+                    val _ = send(receiverPID, ("LEAKED", (leaked_name, leaked_year, leaked_gender, leaked_interests)))
                 in (false, ())
                 end
 
