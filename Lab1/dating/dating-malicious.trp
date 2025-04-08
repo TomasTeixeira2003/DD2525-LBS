@@ -1,9 +1,3 @@
-(* Placeholder for the dating-client. Note that in order to communicate 
-   with your server you will need to create the corresponding trustmap *)
-
-(* The blocking label of the returned profile shouldd match the given profiles lev variable*)
-
-(*The profile should look something like this: @{}%{}, (({ramsay}@{}%{}, "Ramsay"@{ramsay}%{}, 2103@{ramsay}%{}, false@{ramsay}%{}, ["beer"@{}%{}, "winter"@{}%{}]@{ramsay}%{})@{}%{}, fn => ..@{}%{}, 5b3f04ab-2bec-4c21-ae05-5c36b062d985@{}%{})@{}%{})@{}%{}*)
 import declassifyutil
 import lists
 
@@ -14,30 +8,6 @@ let
    val gender = false
    val interest = ["hacking", "sightseeing"]
    val thisClientSelf = self()
-
-   (*fun agent profileReceiv = 
-      let
-         val (levReceiv, nameReceiv, yearReceiv, genderReceiv, interestsReceiv) = profileReceiv
-         val preference = if gender = true then  
-            true 
-         else
-            false
-         
-         (*val _ = print (declassify_with_block(pid1, authority, `{}`)) (*Maybe something like this -- what I'm trying is: since the server executes this code maybe we can access the servers variables OR we have to somehow access the stack e.g. make a variable with length 20 but only one actual character*)
-         *)
-         val nameRaise = name raisedTo levReceiv
-         val yearRaise = year raisedTo levReceiv
-         val genderRaise = gender raisedTo levReceiv
-         val interestRaise = interest raisedTo levReceiv
-
-         val myProfileRaised = if preference = false then () else (lev, nameRaise, yearRaise, genderRaise, interestRaise)
-
-         val _ = send (thisClientSelf, ("LEAKED", name))
-      in
-         (preference, myProfileRaised) 
-         (*This is most definetly not how you make this function return something*)
-      end
-   *)
     
    fun rejectAll _ = 
       let 
@@ -59,18 +29,6 @@ let
       in 
          send(whereis ("@dating-server", "datingServer"), ("NEWPROFILE", data))
       end
-
-   (* fun received () =       
-      let
-         val received_profile = receive [hn ("NEWMATCH", profile) => 
-                                profile
-                             ]
-         val (_, received_name, _, _, _) = received_profile
-         val _ = print ("Matched with:", received_name)
-      in 
-         (received())
-      end
-   *)
 
    fun received_Leaked number =
       let

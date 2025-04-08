@@ -1,10 +1,3 @@
-(* Placeholder for the dating-client. Note that in order to communicate 
-   with your server you will need to create the corresponding trustmap *)
-
-(* The blocking label of the returned profile shouldd match the given profiles lev variable
-   This can be checked in the server inside pini*)
-
-(*The profile should look something like this: @{}%{}, (({ramsay}@{}%{}, "Ramsay"@{ramsay}%{}, 2103@{ramsay}%{}, false@{ramsay}%{}, ["beer"@{}%{}, "winter"@{}%{}]@{ramsay}%{})@{}%{}, fn => ..@{}%{}, 5b3f04ab-2bec-4c21-ae05-5c36b062d985@{}%{})@{}%{})@{}%{}*)
 import declassifyutil
 import lists
 
@@ -31,7 +24,6 @@ let
          val myProfileRaised = if preference = false then () else (lev, nameRaise, yearRaise, genderRaise, interestRaise)
       in
          (preference, myProfileRaised) 
-         (*This is most definetly not how you make this function return something*)
       end
     
 
