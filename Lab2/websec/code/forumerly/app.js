@@ -48,7 +48,7 @@ app
   .use(helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "use.fontawesome.com", "ajax.googleapis.com", "cdnjs.cloudflare.com"]
+      scriptSrc: ["'self'", "use.fontawesome.com", "ajax.googleapis.com", "cdnjs.cloudflare.com"] //just remove cloudlfare to prevent XSS
     }
   }))
   .use(passport.initialize())

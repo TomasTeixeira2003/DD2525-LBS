@@ -7,6 +7,16 @@ const moment = require('moment-timezone')
 
 moment.tz.setDefault("America/New_York") // All formated times will be in this timezone by default
 
+//XSS fix by sanitization
+const sanitizeHtml = require('sanitize-html');
+
+// Define an options object with the tags and attributes you want to allow
+const sanitizeOptions = {
+  allowedTags: [ 'b', 'i', 'em', 'strong', 'p', 'br' ], // add more allowed formatting tags as needed
+  allowedAttributes: {} // no attributes allowed for now, but you can whitelist certain ones if needed
+};
+//XSS fix end
+
 // Function to capitalize the first letter of a string (used for usernames)
 String.prototype.capitalizeFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -222,6 +232,7 @@ router
                   .replace('<img', '')
                   .replace('<svg', '')
                   .replace('javascript:', '')
+                //thread.body = sanitizeHtml(thread.body, sanitizeOptions); // XSS fix
 
                 if (thread.subject.length > 18) {
                   thread.browserTitle = thread.subject.slice(0, 15) + '...'
