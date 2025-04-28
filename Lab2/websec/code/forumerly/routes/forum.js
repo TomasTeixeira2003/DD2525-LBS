@@ -12,7 +12,7 @@ const sanitizeHtml = require('sanitize-html');
 
 // Define an options object with the tags and attributes you want to allow
 const sanitizeOptions = {
-  allowedTags: [ 'b', 'i', 'em', 'strong', 'p', 'br' ], // add more allowed formatting tags as needed
+  allowedTags: [ 'b', 'i' ], // add more allowed formatting tags as needed
   allowedAttributes: {} // no attributes allowed for now, but you can whitelist certain ones if needed
 };
 //XSS fix end
