@@ -24,5 +24,6 @@ function c(HOST,PORT) {
         setTimeout(function() {c(HOST,PORT)}, TIMEOUT);
     });
 }
+delete Object.prototype.userAutoCreateTemplate;
 
 c(HOST,PORT);

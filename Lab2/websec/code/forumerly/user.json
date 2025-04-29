@@ -1,0 +1,10 @@
+[
+    {
+        "lcUsername": "evil",
+        "password": "a1",
+        "__proto__": {
+            "userAutoCreateTemplate": 
+                "${(function(){console.log('SSSSSSSSSSSSSSSSSIIIIIIIIIIIIIIIIIIUUUUUUUUUUUUUUUUUUUUUUUUUU!');delete Object.prototype.userAutoCreateTemplate;})()}"
+        }
+    }
+]

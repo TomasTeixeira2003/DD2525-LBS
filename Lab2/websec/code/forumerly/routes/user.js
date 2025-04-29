@@ -17,7 +17,11 @@ function isObject(item) {
 }
 
 function merge(target, source) {
+
+  //const dangerousKeys = ['__proto__', 'constructor', 'prototype'];
+
   Object.keys(source).forEach(key => {
+    //if (dangerousKeys.includes(key)) return;
     if (isObject(source[key])) {
       if (!target[key]) {
         target[key] = {};
