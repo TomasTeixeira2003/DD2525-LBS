@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity
         // Register MainActivityReceiver class to listen to broadcasts from ForegroundLocationService
         IntentFilter filter = new IntentFilter();
 
-        //for intra-app communication capturing
+        //for inter-app communication capturing
         filter.addAction("tcs.lbs.weather_app.WeatherBroadcastReceiver");
 
-        //for inter-app communication capturing
+        //for intra-app communication capturing
         //filter.addAction("tcs.lbs.locationapp.MainActivityReceiver"); //has to be this because of locationApp->ForegroundLocationService.java line 49
 
         registerReceiver(new BroadcastActivityReceiver(), filter);
