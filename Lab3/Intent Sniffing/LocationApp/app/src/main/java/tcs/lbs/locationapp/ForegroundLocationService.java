@@ -6,6 +6,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,6 +20,7 @@ import android.os.IBinder;
 import android.widget.Toast;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
+//import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class ForegroundLocationService extends Service implements LocationListener
 {
@@ -44,8 +46,18 @@ public class ForegroundLocationService extends Service implements LocationListen
         super.onCreate();
 
         locationAppIntent = new Intent();
+        // Solution to prevent intra-app sniffing
+        //locationAppIntent.setComponent(new ComponentName(this, "tcs.lbs.locationapp.MainActivity$MainActivityReceiver"));
+
+        // the following doesn't work because MainActivityReceiver is only registered at runtime and not in the manifest
+        // and just putting "MainActivity.class" also doesn't work because the manifest needs someone that "extends broadcast"
+        //locationAppIntent = new Intent(this, MainActivity.MainActivityReceiver.class);
+
+        //locationAppIntent.setComponent(new ComponentName("tcs.lbs.locationapp","tcs.lbs.locationapp.MainActivity$MainActivityReceiver"));
         weatherIntent = new Intent();
+        weatherIntent.setPackage("tcs.lbs.weather_app");
         weatherIntent.setAction("tcs.lbs.weather_app.WeatherBroadcastReceiver");
+        locationAppIntent.setPackage("tcs.lbs.locationapp");
         locationAppIntent.setAction("tcs.lbs.locationapp.MainActivityReceiver");
     }
 
@@ -144,7 +156,9 @@ public class ForegroundLocationService extends Service implements LocationListen
     {
         // On location update, send a broadcast intent with the location data
         locationAppIntent.putExtra("Location", _location);
+        //locationAppIntent.setComponent(new ComponentName("tcs.lbs.locationapp","tcs.lbs.locationapp.MainActivity$MainActivityReceiver"));
         weatherIntent.putExtra("Location", _location);
+        //weatherIntent.setComponent(new ComponentName("java.tcs.lbs.weather_app", "java.tcs.lbs.weather_app.MainActivity$WeatherBroadcastReceiver"));
 
         // Send intra-app broadcast to MainActivity
         sendBroadcast(locationAppIntent);
