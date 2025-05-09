@@ -39,7 +39,8 @@
 
         <activity
             android:name=".DataBaseActivity"
-            android:theme="@android:style/Theme.NoDisplay">
+            android:theme="@android:style/Theme.NoDisplay"
+            android:exported="false"> <!-- remove this line to make the exploit possible again -->
             <intent-filter>
                 <action android:name="tcs.lbs.notes.DataBaseManager"/>
             </intent-filter>
