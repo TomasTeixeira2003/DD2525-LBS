@@ -22,14 +22,30 @@ public class FileProvider extends ContentProvider
             return null;
         }
 
+        /*Before mitigation
         try
         {
             File f = new File(getContext().getCacheDir().getCanonicalPath() + path);
 
             return ParcelFileDescriptor.open(f, ParcelFileDescriptor.MODE_READ_ONLY);
-        }
-        catch (Exception e)
-        {
+        */
+        try {
+            // Get the intended base directory
+            File baseDir = getContext().getCacheDir().getCanonicalFile();
+
+            // Create a file  from baseDir + path
+            File targetFile = new File(baseDir, path).getCanonicalFile();
+
+            // Make sure the final file is still within baseDir
+            if (!targetFile.getPath().startsWith(baseDir.getPath())) {
+                // Path traversal detected!
+                return null;
+            }
+
+            return ParcelFileDescriptor.open(targetFile, ParcelFileDescriptor.MODE_READ_ONLY);
+
+
+        } catch (Exception e) {
             return null;
         }
     }
