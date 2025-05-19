@@ -16,13 +16,9 @@ except ImportError:
     print("Install colorama for colored output: pip install colorama")
     sys.exit(1)
 
-# TODO: make the query so that systemUpdate is a variable that you e.g. input on starting this script -> to not have to re-write the script for each new application
-# TODO: make the url an input variable too
-
 data = [
-    {"query":"query {\n  systemUpdate\n}","variables":[]},
-    {"query":"query {\n  systemUpdate\n}","variables":[]},
-    {"query":"query {\n  systemUpdate\n}","variables":[]}
+    #{"query":"query {\n  pastes {\n  owner  {\n  name \n}\n}\n}","variables":[]} # the middle for easier copy paste to elongate the request: {\n  name \n}
+    {"query":"query {\n  pastes {\n  owner  {\n  pastes {\n  owner  {\n  pastes {\n  owner  {\n  pastes {\n  owner  {\n  pastes {\n  owner  {\n  pastes {\n  owner  {\n  pastes {\n  owner  {\n  pastes {\n  owner  {\n  pastes {\n  owner  {\n  pastes {\n  owner  {\n  pastes {\n  owner  {\n  pastes {\n  owner {\n  name \n} \n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}","variables":[]} # the middle for easier copy paste of pastes owner: {\n  name \n}
 ]
 
 url = 'http://localhost:5013/graphql'
