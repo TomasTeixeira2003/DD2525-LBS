@@ -12,13 +12,16 @@ from colorama import Fore, Style, init
 init(autoreset=True)
 
 cookie_header = (
-    "refreshToken=...;"
-    "jwtToken=..."
+    "refreshToken=eyJhbGciOiJSUzI1NiIsImtpZCI6IkJCQUNyQ0M3WWt3N3FaTzAwOTh5bi1WMVFIaGhGZEZGXzdxcXJ5OFdjMWMiLCJ0eXAiOiJKV1QifQ.eyJpYXQiOjE3NDgzNjMwODQsIm93bmVyIjoic2FsZW9yIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2dyYXBocWwvIiwiZXhwIjoxNzUwOTU1MDg0LCJ0b2tlbiI6IjUwUVpsWjA4cVFRNyIsImVtYWlsIjoiaGVsbG9Ad2ViLmRlIiwidHlwZSI6InJlZnJlc2giLCJ1c2VyX2lkIjoiVlhObGNqbzBOUT09IiwiaXNfc3RhZmYiOnRydWUsImNzcmZUb2tlbiI6IjNDNmpGeXg1QXNNbUoxT3FKSFlQalhDSldEWHlGNVdONXZDYmljMnk0czFpUHE0NTN4eDc0bERZcjlUb0NmVUQifQ.zonYFiGWOAEFJl8b6spfHBqTCc9s8GN67vX4JPJqka-lzsly7L1pk-YpC1QMSNho8O1AliXPFhkYvbkYIXWpB96HdpsAF4I1d25IqnyUCqKX5FL38ykak5qXIsaibJYsHwm23CM8A3XVeYl4mM_KAN2ic2FkBNcD9SzWJJkmISC-JdBEfMCvJiN-kIdUn0f3Of8l2AzPCtTJz4T_AvzzBECad8S6drjBdDPOi3vy6X9m2iIwihO8rb9-ld9-ifJhboLrYRhB16wnsH1_CW5B_0805ACUuZt-jgLy_WRvILhoJZV6gZjUi1OYwbBSYc7SZ0cu03aHDu2oHVx4cUzE5Q;"
+    "jwtToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ4NDQ0MTAzLCJleHAiOjE3NTEwMzYxMDN9.r4x08cYLHHBX1njMXNsTHJFyaYTcrnDjgUrTOsBNzDM"
 )
 
 headers = {
     "Content-Type": "application/json",
+    # match Burp's cookie line exactly:
     "Cookie": cookie_header,
+    # You can still include an Authorization header if your Strapi is set up to accept it:
+    # "Authorization": f"Bearer {your_jwt}"
 }
 
 def load_introspection_query(path: str) -> dict:
@@ -43,7 +46,11 @@ def send_query(url: str, payload) -> tuple:
     try:
         start = time.time()
         resp = requests.post(url, json=payload, headers=headers)
-        print(resp.status_code, resp.text)
+        try:
+            message = resp.json()
+            print(resp.status_code, message['errors'][0]['message'])
+        except Exception as e:
+            print("No error occured in the response of the POST")
         return resp, time.time() - start
     except Exception as e:
         print(Fore.RED + f"[Exception] {e}")
