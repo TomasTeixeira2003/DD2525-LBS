@@ -1,0 +1,6 @@
+{
+  "query": "query ExampleQuery($documentId: ID!) { article(documentId: $documentId) { author {       articles {         author {           articles {             author {               articles {                 author {                   articles {                     documentId                   }                 }               }             }           }         }       }     } } }",
+  "variables": {
+    "documentId": "tpjgd7wz9ceascbcw4d8kpuy"
+  }
+}

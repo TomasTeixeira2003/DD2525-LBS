@@ -1,4 +1,4 @@
 {
-  "query": "query { user(where: {id: \"cmb7sri1z0000s8vwtu7ewbyz\"}) { posts { author { posts { author { posts { author { id name } } } } } } } }",
+  "query": "query { user(where: {id: \"cmb7sri1z0000s8vwtu7ewbyz\"}) { posts { author { posts { author { posts { author { posts { author { posts { author { posts { author { posts { author { posts { author { id name } } } } } } } } } } } } } } } } } }",
   "variables": {}
 }
