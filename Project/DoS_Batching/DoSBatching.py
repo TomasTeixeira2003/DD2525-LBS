@@ -8,6 +8,9 @@ import requests
 from tqdm import tqdm
 from colorama import Fore, Style, init
 
+# TODO: change the script to something closer to the strapi batching script (as that one is better because it has more query 
+# with subfields and thus less errors because of missing subfield specifications). Furthermore it ourputs the error if there was one
+
 # Initialize colorama
 init(autoreset=True)
 
