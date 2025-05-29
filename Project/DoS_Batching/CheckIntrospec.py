@@ -6,7 +6,7 @@ A simple script with a very basic introspections query that just checks if
 introspection is enabled or not
 """
 
-url = "http://localhost:3000/api/graphql/"
+url = "https://countries.trevorblades.com/"
 introspection_query = {
     "query": """
     {
