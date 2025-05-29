@@ -111,9 +111,10 @@ def main():
         if string_args:
             return_type = get_named_type(field["type"])
             targets.append((name, args_list, string_args, return_type))
-        else: 
-            print("There are no fields of type String to try an attack")
-            return
+    
+    if not targets: 
+        print("No queries with String fields.")
+        return
 
     for field_name, args_list, string_args, return_type in targets:
         is_object = return_type not in scalar_types and return_type

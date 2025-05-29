@@ -1,0 +1,97 @@
+[+] Introspecting http://localhost:8000/graphql/
+
+[>] Testing warehouse (string args: ['externalReference'])
+
+[>] Testing warehouses (string args: ['before', 'after'])
+
+[>] Testing translations (string args: ['before', 'after'])
+
+[>] Testing taxConfigurations (string args: ['before', 'after'])
+
+[>] Testing taxClasses (string args: ['before', 'after'])
+
+[>] Testing stocks (string args: ['before', 'after'])
+
+[>] Testing shippingZone (string args: ['channel'])
+
+[>] Testing shippingZones (string args: ['channel', 'before', 'after'])
+
+[>] Testing digitalContents (string args: ['before', 'after'])
+
+[>] Testing categories (string args: ['before', 'after'])
+
+[>] Testing category (string args: ['slug'])
+
+[>] Testing collection (string args: ['slug', 'channel'])
+
+[>] Testing collections (string args: ['channel', 'before', 'after'])
+
+[>] Testing product (string args: ['slug', 'externalReference', 'channel'])
+
+[>] Testing products (string args: ['search', 'channel', 'before', 'after'])
+
+[>] Testing productTypes (string args: ['before', 'after'])
+
+[>] Testing productVariant (string args: ['sku', 'externalReference', 'channel'])
+
+[>] Testing productVariants (string args: ['channel', 'before', 'after'])
+
+[>] Testing payments (string args: ['before', 'after'])
+
+[>] Testing page (string args: ['slug'])
+
+[>] Testing pages (string args: ['before', 'after'])
+
+[>] Testing pageTypes (string args: ['before', 'after'])
+
+[>] Testing order (string args: ['externalReference'])
+
+[>] Testing orders (string args: ['channel', 'before', 'after'])
+
+[>] Testing draftOrders (string args: ['before', 'after'])
+
+[>] Testing menu (string args: ['channel', 'name', 'slug'])
+
+[>] Testing menus (string args: ['channel', 'before', 'after'])
+
+[>] Testing menuItem (string args: ['channel'])
+
+[>] Testing menuItems (string args: ['channel', 'before', 'after'])
+
+[>] Testing giftCards (string args: ['search', 'before', 'after'])
+
+[>] Testing giftCardTags (string args: ['before', 'after'])
+
+[>] Testing plugins (string args: ['before', 'after'])
+
+[>] Testing voucher (string args: ['channel'])
+
+[>] Testing vouchers (string args: ['query', 'channel', 'before', 'after'])
+
+[>] Testing promotions (string args: ['before', 'after'])
+
+[>] Testing exportFiles (string args: ['before', 'after'])
+
+[>] Testing checkouts (string args: ['channel', 'before', 'after'])
+
+[>] Testing checkoutLines (string args: ['before', 'after'])
+
+[>] Testing channel (string args: ['slug'])
+
+[>] Testing attributes (string args: ['search', 'channel', 'before', 'after'])
+
+[>] Testing attribute (string args: ['slug', 'externalReference'])
+
+[>] Testing apps (string args: ['before', 'after'])
+
+[>] Testing appExtensions (string args: ['before', 'after'])
+
+[>] Testing addressValidationRules (string args: ['countryArea', 'city', 'cityArea'])
+
+[>] Testing customers (string args: ['before', 'after'])
+
+[>] Testing permissionGroups (string args: ['before', 'after'])
+
+[>] Testing staffUsers (string args: ['before', 'after'])
+
+[>] Testing user (string args: ['email', 'externalReference'])
