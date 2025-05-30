@@ -69,9 +69,6 @@ def main():
 
     # Load GraphQL request data from JSON file
     payload = load_json_file(args.json)
-    if not isinstance(payload, dict): #TODO: delete this later on
-        print(f"Expected a single JSON object, got {type(payload).__name__}")
-        sys.exit(1)
 
     # send the request
     print(f"Sending 1 GraphQL request to {args.url}\n")
