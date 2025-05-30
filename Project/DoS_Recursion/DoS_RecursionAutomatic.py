@@ -97,8 +97,6 @@ def main():
     parser.add_argument("--start-depth", type=int, default=2, help="Starting depth")
     parser.add_argument("--max-depth", type=int, default=20, help="Maximum depth")
     parser.add_argument("--step", type=int, default=2, help="Increment step")
-    parser.add_argument("--timeout", type=float, default=10.0, help="Request timeout")
-    parser.add_argument("--threshold", type=float, default=5.0, help="Latency threshold to stop")
 
     args = parser.parse_args()
 
@@ -110,7 +108,8 @@ def main():
     url = args.url
     chain = args.chain
     start, max_d, step = args.start_depth, args.max_depth, args.step
-    timeout, threshold = args.timeout, args.threshold
+    timeout = 10.0 # to limit how long we wait for responses from the server; Otherwise I was waiting minutes until I notices that the server crashed
+    threshold = 5.0 # measures the actual time it took for a successful response to arrive; If a request takes longer than this, assume server is overwhelmed and abort further tests
     root, root_args = args.root, args.root_args
 
     # Because we feel fancy today
