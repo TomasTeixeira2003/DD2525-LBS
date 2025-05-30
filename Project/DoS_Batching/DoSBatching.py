@@ -14,7 +14,7 @@ init(autoreset=True)
 
 def load_introspection_query(path: str) -> dict:
     """
-    Load the JSON file containing the introspection query payload (each GraphQL Project needs their own personalized query).
+    Load the JSON file containing the introspection query payload (each GraphQL Project has their own personalized query in order to not miss anything).
     """
     try:
         with open(path, 'r') as f:
@@ -63,26 +63,36 @@ def extract_query_fields(schema: dict) -> list:
     If the field returns an object/interface/union, subfields=['__typename'], else [] (otherwise we get errors of missing subfields).
     """
     fields = []
+    # extract types list
     types = schema.get("data", {}).get("__schema", {}).get("types", [])
     # build a map for type lookup -- not needed anymore
     # type_map = {t.get("name"): t for t in types}
 
+    # get top-level Query type
     query_type = next((t for t in types if t.get("name") == "Query"), None)
     if not query_type:
         return []
 
+    # Iterate over all query fields
     for f in query_type.get("fields", []):
         field_name = f.get("name")
         type_info = f.get("type")
-        # unwrap NON_NULL and LIST
+        # unwrap the type from the layers (types are wrapped in: NON_NULL -> LIST -> OBJECT)
+        # => unwrap NON_NULL and LIST to reach the OBJECT
         while type_info.get("ofType"):
             type_info = type_info["ofType"]
+
+        # if the field returns a complex type (e.g. another Object, Interface or Union)
+        #  then sub-fields are required 
+        # the minimal valid subfield is __typename (returns the name of the object's type)
+        # we will use this because otherwise it's too complicated
         kind = type_info.get("kind")
         # for OBJECT, INTERFACE, UNION use __typename
         if kind in ("OBJECT", "INTERFACE", "UNION"):
             subfields = ["__typename"]
         else:
             subfields = []
+        # create tuple
         fields.append((field_name, subfields))
     return fields
 
@@ -95,13 +105,16 @@ def measure_field_timings(url: str, fields: list) -> list:
     """
     timings = []
     for field, subfields in tqdm(fields, desc="Measuring fields"):
+        # construct query
         selection = f"{{ {field} {{ {' '.join(subfields)} }} }}" if subfields else f"{{ {field} }}"
         payload = {"query": f"query {selection}"}
+        # save entries and time
         resp, elapsed = send_query(url, payload)
         if resp and resp.ok:
             timings.append((field, subfields, elapsed))
         else:
             print(Fore.YELLOW + f"[Warning] {field} -> HTTP {resp.status_code if resp else 'Error'}")
+    # sort typles according to third item
     return sorted(timings, key=lambda x: x[2], reverse=True)
 
 
