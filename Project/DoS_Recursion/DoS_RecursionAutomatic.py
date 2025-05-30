@@ -13,22 +13,6 @@ except ImportError:
     sys.exit(1)
 
 
-def load_json_file(filepath):
-    """
-    Load JSON data from a file.
-    """
-    if not os.path.exists(filepath):
-        print(f"File not found: {filepath}")
-        sys.exit(1)
-
-    with open(filepath, 'r') as f:
-        try:
-            return json.load(f)
-        except json.JSONDecodeError as e:
-            print(f"Error decoding JSON: {e}")
-            sys.exit(1)
-
-
 def send_graphql_request(url, payload, timeout=None):
     """
     Send a GraphQL request and return (success, elapsed, status_code, response_text).
