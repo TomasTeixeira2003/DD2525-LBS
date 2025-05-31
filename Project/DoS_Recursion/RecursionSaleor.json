@@ -1,0 +1,4 @@
+{
+  "query": "{   category(slug: \"t-shirts\") {     slug     products(channel: \"Q2hhbm5lbDoy\", first: 10) {  edges {         node {           category  { slug }       }       }     }   } } ",
+  "variables": {}
+}

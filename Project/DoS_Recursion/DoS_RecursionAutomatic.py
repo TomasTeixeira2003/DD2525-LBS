@@ -113,7 +113,7 @@ def main():
     for depth in range(start, max_d + 1, step):
         # Build our recursion query
         query_str = build_recursive_query(chain, depth, root, root_args)
-        print("The following query was build:" + query_str)
+        print("\nThe following query was build:" + query_str)
         payload = {'query': query_str, 'variables': {}, 'depth': depth}
 
         # Send the request

